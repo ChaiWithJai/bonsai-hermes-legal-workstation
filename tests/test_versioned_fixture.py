@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 class VersionedFixtureTest(unittest.TestCase):
     def test_review_context_assignment_and_original_state(self):

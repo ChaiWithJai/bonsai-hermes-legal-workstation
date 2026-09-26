@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 class SetupTest(unittest.TestCase):
     def test_profile_resolves_paths_and_refuses_overwrite(self):

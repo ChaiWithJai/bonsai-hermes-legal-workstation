@@ -9,7 +9,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Verify tools and isolated profile setup
-        run: python -m unittest discover -v -p 'test_*.py'
+        run: python -m unittest discover -s tests -v -p 'test_*.py'
       - name: Validate the current sample agreements
         env:
           LEGAL_DATA_DIR: fixtures/weekly-review-v3

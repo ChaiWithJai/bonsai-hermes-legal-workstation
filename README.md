@@ -9,7 +9,7 @@ Start with the local workflow below, then connect your Google Drive and commitme
 ## Reproduce the local workflow
 
 1. Install the matching Prism runtime and Ternary Bonsai 2 27B checkpoint using the [Prism Bonsai demo](https://github.com/PrismML-Eng/Bonsai-demo) and [model card](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf). Set `LLAMA_SERVER` and `BONSAI_MODEL` to their local paths, then run `sh start_model.sh`. The script binds loopback port 62737 with model alias `bonsai-ui-public-ternary-bonsai2`, 65,536 context tokens, `--jinja`, one slot, and a 512 token reasoning budget. If that port is already in use, check its model ID and launch flags before reusing it.
-2. Run `python3 build_seed.py` and `python3 -m unittest discover -v -p 'test_*.py'`. The first command validates every cited source section and rebuilds the CSV that can be imported into a spreadsheet. The tests use a temporary state file and do not change the demo register.
+2. Run `python3 build_seed.py` and `python3 -m unittest discover -s tests -v -p 'test_*.py'`. The first command validates every cited source section and rebuilds the CSV that can be imported into a spreadsheet. The tests use a temporary state file and do not change the demo register.
 3. Run `python3 setup.py --profile legal-workstation-demo`. The script creates an isolated Hermes profile and refuses to replace an existing one. Then run `hermes --profile legal-workstation-demo chat --oneshot -Q --run-budget 180 -q "Run the weekly commitments review. Which commitments have no recorded owner?"`.
 4. Ask about `APL-007` and its earlier retention term. Then ask, "Assign APL-007 to Khizar, and tell me whether Google Sheets was updated." Ask who owns `APL-007` in a separate turn. The default local register saves the owner in `state.json`; its tool result says `sheet_sync: mocked_local_only`.
 
@@ -33,4 +33,4 @@ The deterministic tests cover ordering, amendment retrieval, owner persistence, 
 
 ![MLflow trace of the 17 offline regression checks](evidence/mlflow-evaluation-17-checks.jpg)
 
-For cost comparisons, start with [TCO.md](TCO.md) and `workload_tco.py`. The latter reads observed token counts and model calls from individual requests in a captured session, then requires explicit assumptions for hardware, power, operations, review, volume, acceptance and hosted rates. The older `tco.py` remains a simpler scenario calculator. Neither measures savings from the current demo.
+For cost comparisons, start with [cost analysis](docs/cost-analysis.md) and `workload_tco.py`. The latter reads observed token counts and model calls from individual requests in a captured session, then requires explicit assumptions for hardware, power, operations, review, volume, acceptance and hosted rates. The older `tco.py` remains a simpler scenario calculator. Neither measures savings from the current demo.

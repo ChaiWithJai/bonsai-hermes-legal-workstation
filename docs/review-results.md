@@ -17,6 +17,6 @@ The second review made seven model requests with 37,069 input tokens and 4,287 o
 
 ## Reproduction checks
 
-Run `python3 -m unittest discover -v -p 'test_*.py'` from the repository root. The tests exercise isolated profile creation, MCP requests from another working directory, source context, assignment and readback, revision conflicts, Google adapter response handling and request-level cost accounting. They use temporary state and mocked Google responses.
+Run `python3 -m unittest discover -s tests -v -p 'test_*.py'` from the repository root. The tests exercise isolated profile creation, MCP requests from another working directory, source context, assignment and readback, revision conflicts, Google adapter response handling and request-level cost accounting. They use temporary state and mocked Google responses.
 
 The Google adapter reads the Sheet when configured and verifies assignment writes with a fresh read. Those code paths still require a live authenticated transaction from Slack through Drive and Sheets. Tests do not prove OAuth permissions, a deployed gateway configuration or a successful remote write. No human acceptance decision has been recorded for these weekly reviews.
