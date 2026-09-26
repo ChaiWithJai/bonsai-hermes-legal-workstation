@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+state.json
+.commitments.lock
+exchanges/
+.env
+*.log
+source-index.json
+evidence/*.stderr
+evidence/live-*.txt
+evidence/google-sheet-seeded.png

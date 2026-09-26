@@ -1,0 +1,19 @@
+{
+  "session_id": "20260926_130550_506a41",
+  "prompt": "Who owns APL-007 now in the fictional local demo register? Read the current record and report whether the agent wrote the Google Sheet.",
+  "tool_calls": [
+    "mcp__legal_workstation__get_commitment"
+  ],
+  "final_answer": "In the fictional local demo register, APL-007 (Aster Clinical AI \u2014 check recording deletion evidence, due October 6, 2026) is owned by Khizar. The record is open and came from the local copy of the Drive document, source_file aster-order-form.md, Amendment 1. It is not a live Google Drive read.\n\nNo agent write to the Google Sheet occurred here: I only read the record, I did not assign anyone, so there was no assignment event to sync and no Sheet write to claim. Any claim of a Sheet write would require a confirmed google_sheets_api result, which does not exist.\n\nNote: this is a fictional scenario; the agreements are demonstration documents, and ownership in the local register does not notify Khizar or prove acceptance.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 2,
+      "input_tokens": 874,
+      "output_tokens": 538,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

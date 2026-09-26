@@ -1,0 +1,19 @@
+{
+  "session_id": "20260926_130123_184f31",
+  "prompt": "Run the weekly review for the fictional A+ client agreements. Which commitments still have no recorded owner? Cite IDs, due dates and source sections. Do not assign anyone.",
+  "tool_calls": [
+    "mcp__legal_workstation__review_commitments"
+  ],
+  "final_answer": "Weekly review completed (review date September 25, 2026). Seven unassigned open commitments, in due date order:\n\nAPL-001 \u2014 Aster Clinical AI \u2014 due 2026-09-28 \u2014 deliver clinician-manager facilitation plan \u2014 aster-order-form.md, Section 2.1.\nAPL-003 \u2014 Harbor Care Intelligence \u2014 due 2026-09-29 \u2014 name facilitation escalation contact \u2014 harbor-msa.md, Section 3.1.\nAPL-002 \u2014 Aster Clinical AI \u2014 due 2026-09-30 \u2014 approve anonymized listening-session summary \u2014 aster-msa.md, Section 4.2.\nAPL-008 \u2014 Northstar Clinic Network \u2014 due 2026-10-01 \u2014 confirm site leads and backup contacts \u2014 northstar-order-form.md, Section 2.1.\nAPL-007 \u2014 Aster Clinical AI \u2014 due 2026-10-06 \u2014 check recording deletion evidence \u2014 aster-order-form.md, Amendment 1. The signed amendment changes the original retention obligation.\nAPL-009 \u2014 Northstar Clinic Network \u2014 due 2026-10-09 \u2014 deliver quarterly program review \u2014 northstar-msa.md, Section 5.2.\nAPL-004 \u2014 Harbor Care Intelligence \u2014 no recorded due date (client dependency) \u2014 confirm workshop acceptance \u2014 harbor-order-form.md, Section 5.1; status waiting_on_client.\n\nNo owners were assigned. The APL-004 date cannot be inferred and remains unconfirmed.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 2,
+      "input_tokens": 3404,
+      "output_tokens": 814,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

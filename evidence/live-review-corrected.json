@@ -1,0 +1,25 @@
+{
+  "session_id": "20260926_130929_d55ff9",
+  "prompt": "In this new conversation, run the weekly review for the fictional A+ client agreements. List commitments with no recorded owner, give exact source sections, and keep unknown dates unknown. Do not assign anyone.",
+  "tool_calls": [
+    "mcp__legal_workstation__review_commitments",
+    "mcp__legal_workstation__get_commitment",
+    "mcp__legal_workstation__get_commitment",
+    "mcp__legal_workstation__get_commitment",
+    "mcp__legal_workstation__get_commitment",
+    "mcp__legal_workstation__get_commitment",
+    "mcp__legal_workstation__get_commitment"
+  ],
+  "final_answer": "Here's the weekly review. This is a fictional demonstration scenario \u2014 the A+ Active Services agreements are demo documents, and their signing state is a scenario assumption, not a real executed contract. Review date is September 25, 2026. All six clauses below were read from local copies of the source Drive documents (local_copy_of_drive_document), not live Google Drive reads, so the cited text is the local fixture copy.\n\nUnassigned commitments (no recorded owner), in due-date order:\n\n1. APL-001 \u2014 Aster Clinical AI. Deliver clinician-manager facilitation plan. Due 2026-09-28. Status open. Source: aster-order-form.md, Section 2.1. Plan must list session objectives, participation options, accessibility needs, and escalation contacts; Aster must review before the first workshop is confirmed.\n\n2. APL-003 \u2014 Harbor Care Intelligence. Name facilitation escalation contact. Due 2026-09-29. Status open. Source: harbor-msa.md, Section 3.1. A primary and backup contact for workshop delivery concerns; acknowledgment within one business day on Mon\u2013Fri 9 a.m.\u20135 p.m. America/New_York, excluding US federal holidays. Acknowledgment does not promise resolution.\n\n3. APL-002 \u2014 Aster Clinical AI. Approve anonymized listening-session summary. Due 2026-09-30. Status open. Source: aster-msa.md, Section 4.2. Summary must exclude employee attribution, patient information, and raw transcripts; Aster's designated reviewer must approve before wider circulation.\n\n4. APL-008 \u2014 Northstar Clinic Network. Confirm site leads and backup contacts. Due 2026-10-01. Status open. Source: northstar-order-form.md, Section 2.1. Site schedule, accessibility plan, and named escalation leads; Northstar confirms room and staff separately.\n\n5. APL-009 \u2014 Northstar Clinic Network. Deliver quarterly program review. Due 2026-10-09. Status open. Source: northstar-msa.md, Section 5.2. Review distinguishes completed sessions, open concerns, and next actions; no clinical efficacy claims.\n\n6. APL-004 \u2014 Harbor Care Intelligence. Confirm workshop acceptance. Due date unknown \u2014 it is unknown, not inferable. Status waiting_on_client. Source: harbor-order-form.md, Section 5.1. Harbor reviews within five business days after delivery, but delivery is unconfirmed, so the acceptance deadline cannot be set as of this review.\n\nNo owner has been assigned to any item, as requested. Clinical, privacy, and contract-interpretation questions should be routed to a human.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 3,
+      "input_tokens": 3409,
+      "output_tokens": 1869,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

@@ -1,0 +1,14 @@
+{
+  "notice": "Copy this to source-index.json and replace the placeholders with IDs from your own Google Drive.",
+  "folder_url": "YOUR_DRIVE_FOLDER_URL",
+  "spreadsheet_id": "YOUR_SPREADSHEET_ID",
+  "spreadsheet_tab": "Sheet1",
+  "files": {
+    "aster-msa.md": "YOUR_ASTER_MSA_FILE_ID",
+    "aster-order-form.md": "YOUR_ASTER_ORDER_FORM_FILE_ID",
+    "harbor-msa.md": "YOUR_HARBOR_MSA_FILE_ID",
+    "harbor-order-form.md": "YOUR_HARBOR_ORDER_FORM_FILE_ID",
+    "northstar-msa.md": "YOUR_NORTHSTAR_MSA_FILE_ID",
+    "northstar-order-form.md": "YOUR_NORTHSTAR_ORDER_FORM_FILE_ID"
+  }
+}

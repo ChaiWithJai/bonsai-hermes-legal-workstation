@@ -1,0 +1,19 @@
+{
+  "session_id": "20260926_130312_a751c2",
+  "prompt": "For the fictional A+ scenario, explain APL-007 using its exact source clause. Which earlier term does it replace, and what evidence should a human check?",
+  "tool_calls": [
+    "mcp__legal_workstation__get_commitment"
+  ],
+  "final_answer": "This is a fictional A+ Active Services demonstration scenario; the documents are not real signed contracts, and any signing state is a scenario assumption.\n\nAPL-007, customer Aster Clinical AI, requires checking recording deletion evidence by October 6, 2026. Its exact source clause, from the local copy of the Drive document aster-order-form.md, section \"Amendment 1\", reads: \"Workshop recordings made September 22, 2026 must be deleted by October 6, 2026. This amendment replaces the 30-day retention period in MSA section 4.4 for those recordings. A+ Active will retain a deletion confirmation, not the recording itself.\"\n\nSo it replaces the 30-day recording retention period in MSA section 4.4 for the September 22, 2026 recordings. The deadline is driven by the amendment, not by any inferred date. Note the read came from a local copy of the Drive document, not a live Drive read.\n\nEvidence a human should check: (1) the signed amendment itself in the master MSA or Drive of record to confirm the September 22 recordings are the scope, (2) deletion logs or the retention confirmation A+ Active will keep, showing the recordings are gone and only the confirmation remains, and (3) that no residual copies exist on systems still under the old 30-day term. Because the underlying recording deletion is a privacy/clinical matter, route interpretation and any confirmation of the delivery or retention specifics to a human rather than relying on the demo register alone.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 2,
+      "input_tokens": 2915,
+      "output_tokens": 625,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

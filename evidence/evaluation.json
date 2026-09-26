@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "clause_tool_used": true,
+    "amendment_replaces_earlier_term": true,
+    "clause_source_disclosed": true,
+    "fictional_scope_disclosed": true,
+    "assignment_tools_used": true,
+    "owner_saved": true,
+    "local_only_sheet_disclosed": true,
+    "readback_tool_used": true,
+    "readback_owner_confirmed": true,
+    "no_notification_claim": true
+  },
+  "passed": 10,
+  "total": 10,
+  "scope": "Offline deterministic checks of three captured live model sessions. No Slack or Google API call was evaluated.",
+  "trace_id": "tr-8500491ef0b521f406b535f005cea04e",
+  "experiment_id": "44",
+  "trace_status": "OK"
+}

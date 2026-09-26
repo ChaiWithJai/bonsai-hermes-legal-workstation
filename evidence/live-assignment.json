@@ -1,0 +1,20 @@
+{
+  "session_id": "20260926_130459_4d5e09",
+  "prompt": "In the fictional A+ demo, assign APL-007 to Khizar. First read its current revision. After saving, tell me exactly whether the agent updated the Google Sheet or only the local register. Do not notify Khizar.",
+  "tool_calls": [
+    "mcp__legal_workstation__get_commitment",
+    "mcp__legal_workstation__assign_owner"
+  ],
+  "final_answer": "Assignment saved. APL-007 (Aster Clinical AI, \"Check recording deletion evidence,\" due 2026-10-06) now shows owner Khizar, status open, revision 1.\n\nSheet sync: mocked_local_only. That means the local demo register was updated only \u2014 the agent did not write to Google Sheets, and I cannot claim any Sheet update without actual google_sheets confirmation. No notification was sent to Khizar, and the assignment does not constitute acceptance.\n\nNote on source: APL-007's current read came from a local copy of a Drive document (aster-order-form.md, Amendment 1, source_kind local_copy_of_drive_document), so the read above was not a live Google Drive read. This remains the fictional A+ Active Services demonstration scenario.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 3,
+      "input_tokens": 1192,
+      "output_tokens": 434,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}
