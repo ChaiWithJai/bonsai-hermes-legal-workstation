@@ -22,7 +22,7 @@ if not python.exists():
     raise SystemExit("Python interpreter does not exist")
 config["mcp_servers"]["legal_workstation"]["command"] = str(python)
 config["mcp_servers"]["legal_workstation"]["args"] = [str(root / "commitments.py")]
-for name in ("LEGAL_SPREADSHEET_ID", "LEGAL_WORKSTATION_STATE", "LEGAL_GOOGLE_TOKEN_FILE", "LEGAL_DATA_DIR"):
+for name in ("LEGAL_SPREADSHEET_ID", "LEGAL_WORKSTATION_STATE", "LEGAL_GOOGLE_TOKEN_FILE", "LEGAL_DATA_DIR", "LEGAL_TRACE", "MLFLOW_TRACKING_URI"):
     if os.environ.get(name):
         config["mcp_servers"]["legal_workstation"]["env"][name] = (str(Path(os.environ[name]).expanduser().resolve()) if name in ("LEGAL_DATA_DIR", "LEGAL_WORKSTATION_STATE", "LEGAL_GOOGLE_TOKEN_FILE") else os.environ[name])
 out.mkdir(parents=True)

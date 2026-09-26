@@ -34,3 +34,9 @@ The deterministic tests cover ordering, amendment retrieval, owner persistence, 
 ![MLflow trace of the 17 offline regression checks](evidence/mlflow-evaluation-17-checks.jpg)
 
 For cost comparisons, start with [cost analysis](docs/cost-analysis.md) and `workload_tco.py`. The latter reads observed token counts and model calls from individual requests in a captured session, then requires explicit assumptions for hardware, power, operations, review, volume, acceptance and hosted rates. The older `tco.py` remains a simpler scenario calculator. Neither measures savings from the current demo.
+
+## Observe live tool calls
+
+Install `requirements-eval.txt` into the interpreter used by the MCP server. Before creating a profile, set `LEGAL_PYTHON` to that interpreter, `LEGAL_TRACE=1` and `MLFLOW_TRACKING_URI` to your local server, such as `http://127.0.0.1:5210`. The profile preserves the tracing settings. Existing profiles need the same environment values and a tool-process restart.
+
+Each tool invocation creates a `TOOL` span in the `legal-workstation-demo` experiment with its arguments, output and execution status. Tool results can include agreement text and assignments, so choose the tracking destination accordingly. These spans cover tool execution only. They do not measure model generation, represent a complete Slack transaction or provide a human acceptance decision. The offline evaluation runs remain separate from live tool traces.

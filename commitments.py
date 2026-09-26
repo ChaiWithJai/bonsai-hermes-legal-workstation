@@ -202,6 +202,14 @@ TOOLS = [
 ]
 
 
+if os.environ.get("LEGAL_TRACE") == "1":
+    import mlflow
+
+    mlflow.set_tracking_uri(os.environ.get("MLFLOW_TRACKING_URI", "http://127.0.0.1:5210"))
+    mlflow.set_experiment("legal-workstation-demo")
+    execute = mlflow.trace(name="legal_workstation_tool", span_type="TOOL")(execute)
+
+
 def main():
     for line in sys.stdin:
         try:

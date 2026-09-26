@@ -34,3 +34,14 @@ class SetupTest(unittest.TestCase):
             again = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True)
             self.assertNotEqual(again.returncode, 0)
             self.assertEqual(config.read_bytes(), original)
+
+    def test_profile_preserves_opt_in_tracing_settings(self):
+        with tempfile.TemporaryDirectory() as home:
+            env = dict(os.environ, HOME=home, LEGAL_TRACE="1",
+                       MLFLOW_TRACKING_URI="http://127.0.0.1:5210")
+            subprocess.run([sys.executable, "setup.py", "--profile", "trace-check"],
+                           cwd=ROOT, env=env, capture_output=True, text=True, check=True)
+            config = json.loads((Path(home) / ".hermes/profiles/trace-check/config.yaml").read_text())
+            settings = config["mcp_servers"]["legal_workstation"]["env"]
+            self.assertEqual(settings["LEGAL_TRACE"], "1")
+            self.assertEqual(settings["MLFLOW_TRACKING_URI"], "http://127.0.0.1:5210")
