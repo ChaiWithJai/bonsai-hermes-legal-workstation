@@ -9,15 +9,37 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(os.environ.get("LEGAL_DATA_DIR", Path(__file__).resolve().parent)).expanduser().resolve()
 STATE = Path(os.environ.get("LEGAL_WORKSTATION_STATE", ROOT / "state.json"))
 INDEX_PATH = ROOT / "source-index.json"
 INDEX = json.loads((INDEX_PATH if INDEX_PATH.exists() else ROOT / "source-index.example.json").read_text())
 OWNERS = ("Anthony", "Khizar", "Jai")
 
 
-def google(url, method="GET", payload=None):
+def google_configured():
+    return bool(os.environ.get("LEGAL_GOOGLE_TOKEN") or os.environ.get("LEGAL_GOOGLE_TOKEN_FILE"))
+
+
+def google_token():
     token = os.environ.get("LEGAL_GOOGLE_TOKEN")
+    if token:
+        return token
+    filename = os.environ.get("LEGAL_GOOGLE_TOKEN_FILE")
+    if not filename:
+        return None
+    try:
+        token = Path(filename).expanduser().read_text().strip()
+        if token.startswith("{"):
+            token = json.loads(token).get("access_token", "")
+        if not isinstance(token, str) or not token or any(c.isspace() for c in token):
+            raise ValueError()
+        return token
+    except (OSError, ValueError):
+        raise RuntimeError("Google token file must contain an access token or JSON with access_token") from None
+
+
+def google(url, method="GET", payload=None):
+    token = google_token()
     if not token:
         raise RuntimeError("Google OAuth token unavailable")
     data = json.dumps(payload).encode() if payload is not None else None
@@ -32,7 +54,38 @@ def google(url, method="GET", payload=None):
         raise RuntimeError(f"Google API returned HTTP {error.code}") from error
 
 
+def sheet_base():
+    sheet_id = os.environ.get("LEGAL_SPREADSHEET_ID", INDEX["spreadsheet_id"])
+    return f"https://sheets.googleapis.com/v4/spreadsheets/{urllib.parse.quote(sheet_id, safe='')}"
+
+
+def sheet_range(cells):
+    tab = "'" + INDEX["spreadsheet_tab"].replace("'", "''") + "'"
+    return tab + "!" + cells
+
+
+def sheet_values():
+    cell_range = urllib.parse.quote(sheet_range("A2:J"), safe="")
+    return json.loads(google(sheet_base() + "/values/" + cell_range)).get("values", [])
+
+
 def rows():
+    if google_configured():
+        result, seen = [], set()
+        fields = ("id", "customer", "obligation", "due_date", "owner", "status",
+                  "source_file", "source_section", "revision", "evidence_needed")
+        for cells in sheet_values():
+            if not cells or not cells[0]:
+                continue
+            if len(cells) < 9 or cells[0] in seen:
+                raise RuntimeError("Incomplete or duplicate commitment in Google Sheet")
+            item = dict(zip(fields, cells + [""] * max(0, 10 - len(cells))))
+            item["revision"] = int(item["revision"])
+            if item["revision"] < 0:
+                raise RuntimeError("Invalid Google Sheet revision")
+            seen.add(item["id"])
+            result.append(item)
+        return result
     path = STATE if STATE.exists() else ROOT / "seed.json"
     return json.loads(path.read_text())["commitments"]
 
@@ -50,7 +103,7 @@ def clause(row):
     filename = row["source_file"]
     file_id = INDEX["files"][filename]
     source_kind = "local_copy_of_drive_document"
-    if os.environ.get("LEGAL_GOOGLE_TOKEN"):
+    if google_configured():
         url = f"https://www.googleapis.com/drive/v3/files/{urllib.parse.quote(file_id)}?alt=media"
         content = google(url).decode("utf-8")
         source_kind = "google_drive_api"
@@ -66,12 +119,10 @@ def clause(row):
 
 
 def update_sheet(commitment_id, owner, previous_revision):
-    if not os.environ.get("LEGAL_GOOGLE_TOKEN"):
+    if not google_configured():
         return "mocked_local_only"
-    sheet_id = os.environ.get("LEGAL_SPREADSHEET_ID", INDEX["spreadsheet_id"])
-    tab = INDEX["spreadsheet_tab"]
-    base = f"https://sheets.googleapis.com/v4/spreadsheets/{urllib.parse.quote(sheet_id)}"
-    values = json.loads(google(base + "/values/" + urllib.parse.quote(tab + "!A2:I100", safe="!"))).get("values", [])
+    base = sheet_base()
+    values = sheet_values()
     matches = [(number + 2, cells) for number, cells in enumerate(values) if cells and cells[0] == commitment_id]
     if len(matches) != 1:
         raise RuntimeError("Expected exactly one matching Google Sheet row")
@@ -80,11 +131,15 @@ def update_sheet(commitment_id, owner, previous_revision):
     if sheet_revision != previous_revision:
         raise RuntimeError("Google Sheet revision changed; reread before assigning")
     body = {"valueInputOption": "RAW", "data": [
-        {"range": f"{tab}!E{number}", "values": [[owner]]},
-        {"range": f"{tab}!I{number}", "values": [[previous_revision + 1]]},
+        {"range": sheet_range(f"E{number}"), "values": [[owner]]},
+        {"range": sheet_range(f"I{number}"), "values": [[previous_revision + 1]]},
     ]}
     google(base + "/values:batchUpdate", "POST", body)
-    return "google_sheets_api"
+    verified = [item for item in rows() if item["id"] == commitment_id]
+    if (len(verified) != 1 or verified[0]["owner"] != owner
+            or verified[0]["revision"] != previous_revision + 1):
+        raise RuntimeError("Google Sheet write could not be verified; reread before retrying")
+    return "google_sheets_api_verified"
 
 
 def execute(name, arguments):
@@ -94,13 +149,18 @@ def execute(name, arguments):
             items = [item for item in items if not item["owner"]]
         items.sort(key=lambda item: (not bool(item["due_date"]), item["due_date"], item["id"]))
         return {"fictional": True, "count": len(items), "commitments": items,
-                "register_kind": "local_fixture_mirrored_to_google_sheet"}
+                "register_kind": "google_sheets_api" if google_configured() else "local_fixture_mirrored_to_google_sheet"}
     commitment_id = arguments.get("commitment_id", "")
     matches = [item for item in rows() if item["id"] == commitment_id]
     if len(matches) != 1:
         raise ValueError("Use an exact commitment ID from review_commitments")
     if name == "get_commitment":
-        return {**matches[0], **clause(matches[0]), "fictional": True}
+        result = {**matches[0], **clause(matches[0]), "fictional": True}
+        handoff = ROOT / "agreements" / (matches[0]["source_file"].split("-", 1)[0] + "-handoff.md")
+        if handoff.exists():
+            result["delivery_context"] = {"source_kind": "local_sample_account_history",
+                                          "source_file": handoff.name, "text": handoff.read_text()}
+        return result
     if name != "assign_owner":
         raise ValueError("Unknown tool")
     owner, expected = arguments.get("owner"), arguments.get("expected_revision")

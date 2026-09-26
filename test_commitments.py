@@ -12,12 +12,16 @@ class CommitmentsTest(unittest.TestCase):
         self.directory = tempfile.TemporaryDirectory()
         self.old_state = commitments.STATE
         self.old_token = os.environ.pop("LEGAL_GOOGLE_TOKEN", None)
+        self.old_token_file = os.environ.pop("LEGAL_GOOGLE_TOKEN_FILE", None)
         commitments.STATE = Path(self.directory.name) / "state.json"
 
     def tearDown(self):
         commitments.STATE = self.old_state
         if self.old_token is not None:
             os.environ["LEGAL_GOOGLE_TOKEN"] = self.old_token
+        os.environ.pop("LEGAL_GOOGLE_TOKEN_FILE", None)
+        if self.old_token_file is not None:
+            os.environ["LEGAL_GOOGLE_TOKEN_FILE"] = self.old_token_file
         self.directory.cleanup()
 
     def test_review_and_source_clause(self):
