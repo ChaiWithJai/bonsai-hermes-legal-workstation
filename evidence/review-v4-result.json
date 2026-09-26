@@ -1,0 +1,11 @@
+{
+  "session_id": "20260926_163003_a43c8f",
+  "accepted": false,
+  "word_count": 222,
+  "findings": [
+    "Incorrect client count: answer says four; register has Aster, Harbor and Northstar.",
+    "Response exceeds 200-word instruction.",
+    "Correct delivery trigger preserved; complete sentences replace dash-separated fragments."
+  ],
+  "reviewer_kind": "agent review, not human annotation"
+}

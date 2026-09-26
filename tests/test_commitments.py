@@ -27,6 +27,7 @@ class CommitmentsTest(unittest.TestCase):
     def test_review_and_source_clause(self):
         review = commitments.execute("review_commitments", {})
         self.assertEqual(review["count"], 7)
+        self.assertEqual(review["customer_count"], 3)
         self.assertEqual(review["commitments"][0]["id"], "APL-001")
         self.assertEqual(review["commitments"][-1]["id"], "APL-004")
         clause = commitments.execute("get_commitment", {"commitment_id": "APL-007"})

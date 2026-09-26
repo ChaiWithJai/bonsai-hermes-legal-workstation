@@ -1,0 +1,12 @@
+{
+  "session_id": "20260926_163244_34d0e6",
+  "word_count": 260,
+  "accepted": false,
+  "reviewer_kind": "agent review, not human annotation",
+  "findings": [
+    "All six commitments appear in due-date order; delivery trigger preserved.",
+    "No incorrect client count; answer omits that total, so correct count use is not demonstrated.",
+    "Length guidance still exceeded and closing repeats next actions.",
+    "Citations refer to register metadata; no clause retrieval occurred."
+  ]
+}

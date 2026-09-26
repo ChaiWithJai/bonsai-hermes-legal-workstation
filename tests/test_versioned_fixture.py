@@ -30,6 +30,7 @@ class VersionedFixtureTest(unittest.TestCase):
             self.assertTrue(all(not result.get('isError') for result in results), results)
             values = [json.loads(result['content'][0]['text']) for result in results]
             self.assertEqual(values[0]['count'], 6)
+            self.assertEqual(values[0]['customer_count'], 3)
             self.assertNotIn('APL-001', [row['id'] for row in values[0]['commitments']])
             self.assertIn('September 18', values[1]['delivery_context']['text'])
             self.assertEqual(values[1]['delivery_context']['source_kind'], 'local_sample_account_history')

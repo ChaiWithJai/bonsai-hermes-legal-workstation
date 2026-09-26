@@ -148,7 +148,7 @@ def execute(name, arguments):
         if arguments.get("unassigned_only", True):
             items = [item for item in items if not item["owner"]]
         items.sort(key=lambda item: (not bool(item["due_date"]), item["due_date"], item["id"]))
-        return {"fictional": True, "count": len(items), "commitments": items,
+        return {"fictional": True, "count": len(items), "customer_count": len({item["customer"] for item in items}), "commitments": items,
                 "register_kind": "google_sheets_api" if google_configured() else "local_fixture_mirrored_to_google_sheet"}
     commitment_id = arguments.get("commitment_id", "")
     matches = [item for item in rows() if item["id"] == commitment_id]

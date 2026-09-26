@@ -16,6 +16,7 @@ class GoogleRegisterTest(unittest.TestCase):
         with patch.dict(os.environ, LEGAL_GOOGLE_TOKEN='test'), patch.object(commitments, 'google', return_value=json.dumps({'values': [self.row()]}).encode()):
             result = commitments.execute('review_commitments', {})
         self.assertEqual(result['register_kind'], 'google_sheets_api')
+        self.assertEqual(result["customer_count"], 1)
         self.assertEqual([r['id'] for r in result['commitments']], ['APL-007'])
 
     def test_write_readback(self):
