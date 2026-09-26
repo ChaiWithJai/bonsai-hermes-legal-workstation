@@ -1,0 +1,18 @@
+{
+  "session_id": "20260926_180417_c2c54b",
+  "final_answer": "APL-008 (Northstar Clinic Network, Section 2.1 of northstar-order-form.md, a local copy of a Google Drive document, file ID [redacted]):\n\nA+ Active owes the site schedule, accessibility plan, and named escalation leads, due October 1, 2026. That date is stated explicitly in the clause.\n\nNorthstar owes to confirm room availability and participating staff separately. The clause gives no date for that confirmation. The register records a due date of 2026-10-01 against the obligation as a whole, but that date is tied only to A+ Active's deliverables in the clause.\n\nCitation: northstar-order-form.md, Section 2.1. The register has not been changed.",
+  "final_answer_present": true,
+  "tool_names": [
+    "mcp__legal_workstation__get_commitment"
+  ],
+  "scope": "Direct Hermes read-only replay using local files and sampling proxy; no Slack or Google request",
+  "findings": {
+    "provider_deliverables": "correct",
+    "provider_date": "correct",
+    "customer_deliverables": "correct",
+    "customer_date_unknown": "correct"
+  },
+  "review_source": "Agent comparison with supplied Section 2.1, not human acceptance",
+  "human_acceptance": "pending",
+  "interpretation": "Combined configuration intervention, one replay; no isolated causal or latency claim"
+}
