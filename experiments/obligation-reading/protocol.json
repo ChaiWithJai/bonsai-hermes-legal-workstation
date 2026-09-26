@@ -1,0 +1,22 @@
+{
+  "status": "prepared_not_executed",
+  "scope": "Development case derived from the observed APL-008 party-attribution error. Not held-out evaluation.",
+  "question": "Does the response limit prevent a complete, correct extraction of both parties and their obligations?",
+  "changed_variable": "max_tokens",
+  "source": "agreements/northstar-order-form.md",
+  "source_sha256": "157d9aab5bb21eab0bcda80638990bef8ff6d70cf5c1374468a523c290f1f7e5",
+  "request_sha256": [
+    "5118086955bf167561eb92a72c89ab08531abd63a943934d38601b917c70c4a8",
+    "e6785a4b3b50fbee72d7b9cfe2a77b2a167fc8d8d5df06f6bcbadc180c8b10cd"
+  ],
+  "execution": "Run sequentially under the shared GPU queue. Capture model and runtime hashes, launch flags, hardware, server state and every raw response before interpreting results.",
+  "timing": "Use alternating order across repeated paired runs; record prompt-cache usage. A single pair cannot establish a latency improvement.",
+  "review": "Score JSON syntax, each party, each deliverable, date and missing-date handling separately. Human review is required for semantic equivalence and usefulness.",
+  "claims_excluded": [
+    "Hermes tool selection",
+    "Slack workflow completion",
+    "human acceptance",
+    "general legal accuracy",
+    "operating savings"
+  ]
+}
