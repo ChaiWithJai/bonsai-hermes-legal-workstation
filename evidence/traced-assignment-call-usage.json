@@ -1,0 +1,27 @@
+{
+  "session_id": "20260926_164157_d47b91",
+  "calls": [
+    {
+      "call": 1,
+      "input_tokens": 2764,
+      "output_tokens": 107,
+      "seconds": 27.0
+    },
+    {
+      "call": 2,
+      "input_tokens": 3465,
+      "output_tokens": 128,
+      "seconds": 6.9
+    },
+    {
+      "call": 3,
+      "input_tokens": 3774,
+      "output_tokens": 323,
+      "seconds": 13.4
+    }
+  ],
+  "total_input_tokens": 10003,
+  "total_output_tokens": 558,
+  "scope": "One logged model turn; repeated context included; cache discounts not modeled",
+  "log_sha256": "1b96e8cc5a594ef1064b31971dd3712c3377b56f3d9eb01ed03ce593ac69b6e7"
+}

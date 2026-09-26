@@ -28,3 +28,9 @@ Session `20260926_163003_a43c8f` used the same version 3 fixture with instructio
 Session `20260926_163244_34d0e6` added a tool-provided customer count and instructions to use returned totals. Its answer omitted the client total, retained all six commitments and the delivery trigger, and used 260 words with repeated closing actions. Omitting the count does not prove correct use of the new field. The [answer](../evidence/review-v5-session.json) and [candidate instructions](../evidence/review-v5-instructions.md) are retained for review. The default instructions have not been replaced by this candidate.
 
 The 200-word target is a harness instruction, not evidence of customer value by itself. Source accuracy, useful next actions and verified assignments remain necessary regardless of answer length. None of these review-only runs proves the connected Slack, Drive and Sheet transaction.
+
+## Traced assignment
+
+The first tracing-enabled profile failed to load its MCP tools because setup resolved the virtual-environment Python symlink to the base interpreter, where MLflow was unavailable. Session `20260926_164046_5acdd5` correctly declined to claim an assignment. Setup now preserves the executable path.
+
+Session `20260926_164157_d47b91` then retrieved APL-007 and saved Khizar at revision 1. The response correctly reported a local-only update and no owner notification. A separate tool process read back Khizar and revision 1, with trace `tr-09a2f237e34ce6d624c008422a80a711`. The [session](../evidence/traced-assignment-session.json), [readback](../evidence/traced-assignment-readback.json) and [request usage](../evidence/traced-assignment-call-usage.json) preserve the result. These operations did not use Slack or Google credentials.

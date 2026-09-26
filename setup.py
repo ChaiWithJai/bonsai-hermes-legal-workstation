@@ -17,7 +17,7 @@ out = Path.home() / ".hermes" / "profiles" / args.profile
 if out.exists():
     raise SystemExit(f"Refusing to overwrite {out}")
 config = json.loads((root / "hermes-config.json").read_text())
-python = Path(os.environ.get("LEGAL_PYTHON", sys.executable)).expanduser().resolve()
+python = Path(os.environ.get("LEGAL_PYTHON", sys.executable)).expanduser().absolute()
 if not python.exists():
     raise SystemExit("Python interpreter does not exist")
 config["mcp_servers"]["legal_workstation"]["command"] = str(python)

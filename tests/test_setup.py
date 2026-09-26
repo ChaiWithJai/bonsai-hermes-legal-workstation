@@ -45,3 +45,14 @@ class SetupTest(unittest.TestCase):
             settings = config["mcp_servers"]["legal_workstation"]["env"]
             self.assertEqual(settings["LEGAL_TRACE"], "1")
             self.assertEqual(settings["MLFLOW_TRACKING_URI"], "http://127.0.0.1:5210")
+
+    def test_python_symlink_is_preserved_for_virtual_environment(self):
+        with tempfile.TemporaryDirectory() as home:
+            interpreter = Path(home) / "venv" / "bin" / "python"
+            interpreter.parent.mkdir(parents=True)
+            interpreter.symlink_to(sys.executable)
+            env = dict(os.environ, HOME=home, LEGAL_PYTHON=str(interpreter))
+            subprocess.run([sys.executable, "setup.py", "--profile", "interpreter-check"],
+                           cwd=ROOT, env=env, capture_output=True, text=True, check=True)
+            config = json.loads((Path(home) / ".hermes/profiles/interpreter-check/config.yaml").read_text())
+            self.assertEqual(config["mcp_servers"]["legal_workstation"]["command"], str(interpreter.absolute()))
