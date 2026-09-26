@@ -2,6 +2,8 @@
 
 A person can ask this Hermes agent which obligations in a fictional A+ Active Services client book still need an owner. The agent retrieves the exact clause from an agreement and can record an owner after an explicit request. Ternary Bonsai 2 27B supplies the explanation; the tools perform the reads and write. The included agreements, clients, signing state, and commitments are fictional.
 
+The [public reproduction guide](https://gist.github.com/ChaiWithJai/8d4f27ee997b8ef07a46488a45ea02ae) gives the short command sequence. Read the evidence limits below before describing the Slack or Google integrations.
+
 The sample covers two clinical AI startups and one invented clinic network. The Aster amendment changes an earlier recording retention term. Harbor's acceptance date is unknown because material delivery has not been confirmed. Northstar's program review does not make a clinical efficacy claim. These details give the agent a useful source conflict and a genuine unknown to handle.
 
 ## Reproduce the local workflow
