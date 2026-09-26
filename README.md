@@ -25,8 +25,10 @@ The real demo folder and native Sheet were seeded in the user's personal Google 
 
 ## Evidence and limits
 
-The deterministic tests cover ordering, amendment retrieval, owner persistence, revision rejection and an honest local-only sync result. Live Hermes and Bonsai sessions are exported in `evidence/`, with an MLflow trace of ten narrow checks over the captured answers. Install `requirements-eval.txt` in a separate Python environment, start an MLflow tracking server, set `MLFLOW_TRACKING_URI`, and run `python evaluate.py` there to repeat the offline evaluation. The trace is not a model-wide accuracy result. The finance and ambient demonstrations keep their own evidence rather than borrowing this workstation's results.
+The deterministic tests cover ordering, amendment retrieval, owner persistence, revision rejection and an honest local-only sync result. Live Hermes and Bonsai sessions are exported in `evidence/`, with an MLflow trace of 17 narrow checks over three direct sessions and two Slack sessions, including detection of the stale-MCP failure. Install `requirements-eval.txt` in a separate Python environment, start an MLflow tracking server, set `MLFLOW_TRACKING_URI`, and run `python evaluate.py` there to repeat the offline evaluation. The trace is not a model-wide accuracy result. The finance and ambient demonstrations keep their own evidence rather than borrowing this workstation's results.
 
 ![Live read-only Slack reply using the new legal tool code](evidence/slack-live-legal-workstation.jpg)
+
+![MLflow trace of the 17 offline regression checks](evidence/mlflow-evaluation-17-checks.jpg)
 
 For cost comparisons, use the included `tco.py` with your own machine price, power, utilization and external inference price. Its output is a scenario, not a measured saving. A matched workload and measured throughput are required to make an actual cost claim.

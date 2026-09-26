@@ -9,12 +9,19 @@
     "local_only_sheet_disclosed": true,
     "readback_tool_used": true,
     "readback_owner_confirmed": true,
-    "no_notification_claim": true
+    "no_notification_claim": true,
+    "stale_process_detected": true,
+    "slack_new_tools_used": true,
+    "slack_new_register_read": true,
+    "slack_owner_readback": true,
+    "slack_answer_matches_register": true,
+    "slack_local_source_disclosed": true,
+    "slack_sheet_limit_disclosed": true
   },
-  "passed": 10,
-  "total": 10,
-  "scope": "Offline deterministic checks of three captured live model sessions. No Slack or Google API call was evaluated.",
-  "trace_id": "tr-8500491ef0b521f406b535f005cea04e",
+  "passed": 17,
+  "total": 17,
+  "scope": "Offline deterministic checks of three direct and two Slack captured sessions. The first Slack run is an expected stale-MCP failure; the second is a live read-only Slack path. No Google API call or Slack-triggered write was evaluated.",
+  "trace_id": "tr-30e3acfbec616e3fcaeeb23d26590022",
   "experiment_id": "44",
   "trace_status": "OK"
 }
