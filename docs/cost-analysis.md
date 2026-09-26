@@ -12,7 +12,7 @@ For a savings claim, capture a full connected transaction and repeat it after wa
 
 The current cost output is a decision worksheet for a sales conversation. It does not establish that local inference is cheaper, faster or more accurate for this legal task.
 
-An **accepted legal task** must cite the controlling agreement section, preserve an unknown deadline where the source does, save the intended owner and revision to the designated system, verify the row with a fresh read, and make no false claim about notification or a Google write. A human reviewer must also mark whether the source interpretation and assignment are appropriate. The current local assignment satisfies some observable fields, but lacks the connected Sheet write and a recorded human decision. Its acceptance rate therefore cannot be measured from the existing traces.
+An **accepted legal task** must cite the controlling agreement section, preserve an unknown deadline where the source does, save the intended owner and revision to the designated system, verify the row with a fresh read, and make no false claim about notification or a Google write. A human reviewer must also mark whether the source interpretation and assignment are appropriate. The connected Slack assignment has a verified Sheet write and independent readback. It still lacks a recorded human decision about the source interpretation and assignment, so an acceptance rate cannot be measured from the existing traces.
 
 
 Export a completed turn from its Hermes log:

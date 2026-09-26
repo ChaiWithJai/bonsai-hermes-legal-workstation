@@ -2,18 +2,24 @@
 
 Review the commitments that still need an owner, inspect the agreement behind each obligation and assign the next action from Slack. The weekly review gives counsel a way to check responsibility without asking the delivery team to adopt another work queue.
 
-Hermes provides the conversational workflow, and Ternary Bonsai 2 27B runs on your workstation. The tools retrieve clauses and save assignments. The included sample agreements cover facilitation services for clinical AI companies and a clinic network, including an amended retention deadline and an acceptance date that remains unknown.
+## Review and assign a commitment
 
-Start with the local workflow below, then connect your Google Drive and commitments Sheet. The [architecture](docs/architecture.md) describes the tools, storage, network and assignment behavior. The [execution record](EVIDENCE.md) distinguishes recorded runs from integrations still awaiting verification. The [reproduction gist](https://gist.github.com/ChaiWithJai/8d4f27ee997b8ef07a46488a45ea02ae) provides the published command sequence.
+Start in Slack with "What commitments still need an owner?" Ask for the agreement behind an obligation, then name the person responsible for the next action. The agent saves the assignment in the commitments Sheet and reads it back, so you can confirm the result in the same conversation.
+
+In the [recorded Slack transaction](docs/google-verification.md), the agent retrieved APL-008 from Google Drive and saved Khizar as its owner in Google Sheets. A separate API read confirmed the owner and revision. Recording an assignment does not notify the owner or establish their acceptance.
+
+The included agreements cover facilitation services for clinical AI companies and a clinic network. They are sample data for reproducing the workflow. Hermes connects the conversation to the tools, with Ternary Bonsai 2 27B serving inference on the workstation. The [architecture](docs/architecture.md) explains data movement, storage and assignment behavior.
 
 ## Reproduce the local workflow
+
+The [reproduction guide](https://gist.github.com/ChaiWithJai/8d4f27ee997b8ef07a46488a45ea02ae) provides clone and checkout commands for the tested revision. Run the following commands from that checkout.
 
 1. Install the matching Prism runtime and Ternary Bonsai 2 27B checkpoint using the [Prism Bonsai demo](https://github.com/PrismML-Eng/Bonsai-demo) and [model card](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf). Set `LLAMA_SERVER` and `BONSAI_MODEL` to their local paths, then run `sh start_model.sh`. The script binds loopback port 62737 with model alias `bonsai-ui-public-ternary-bonsai2`, 65,536 context tokens, `--jinja`, one slot, and a 512 token reasoning budget. If that port is already in use, check its model ID and launch flags before reusing it.
 2. Run `python3 build_seed.py` and `python3 -m unittest discover -s tests -v -p 'test_*.py'`. The first command validates every cited source section and rebuilds the CSV that can be imported into a spreadsheet. The tests use a temporary state file and do not change the demo register.
 3. Run `python3 setup.py --profile legal-workstation-demo`. The script creates an isolated Hermes profile and refuses to replace an existing one. Then run `hermes --profile legal-workstation-demo chat --oneshot -Q --run-budget 180 -q "Run the weekly commitments review. Which commitments have no recorded owner?"`.
 4. Ask about `APL-007` and its earlier retention term. Then ask, "Assign APL-007 to Khizar, and tell me whether Google Sheets was updated." Ask who owns `APL-007` in a separate turn. The default local register saves the owner in `state.json`; its tool result says `sheet_sync: mocked_local_only`.
 
-The installed profile has three explicit tools, an eight turn limit, medium reasoning, disabled memory and disabled tool search. The tools cannot send a client message or notify an owner. The files `SOUL.md` and `hermes-config.json` show the harness configuration. To DM the agent, supply Slack credentials to a Hermes profile with the same tool configuration; no credentials are included here. The existing A+ Client Commitments app was connected to this repository's tool code for a read-only test on September 26. The first request still used the old cached MCP process after the profile edit. A supervised gateway restart loaded the new tool code, and the second Slack thread correctly read the new register. The captured session and screenshot are in `evidence/`. Those earlier captures were read-only. A subsequent [connected assignment](docs/google-verification.md) read Drive, wrote Sheets and verified the result after a Slack request.
+The installed profile has three explicit tools, an eight turn limit, medium reasoning, disabled memory and disabled tool search. The tools cannot send a client message or notify an owner. The files `SOUL.md` and `hermes-config.json` show the harness configuration. To DM the agent, supply Slack credentials to a Hermes profile with the same tool configuration; no credentials are included here. The [execution record](EVIDENCE.md) preserves the earlier runs, including a stale tool process, and the [connected verification](docs/google-verification.md) records the subsequent Drive read and Sheets assignment.
 
 ## Use your own Google Drive and Sheet
 
@@ -23,7 +29,7 @@ Set `LEGAL_GOOGLE_TOKEN_FILE` to an absolute path outside the repository before 
 
 Run `python3 scripts/check_google.py` to verify the Sheet and each open commitment's Drive clause without making a write. The output records source hashes and revisions without printing credentials. A successful read check does not prove write access; the assignment workflow verifies that separately.
 
-The real demo folder and native Sheet were seeded in the user's personal Google account, but the public source index uses placeholders. This repository does not include the user's OAuth token, private file IDs or personal folder link. The screenshots in `evidence/` show the six Drive documents, populated native Sheet, and live Slack readback. After the model assigned APL-007 in the local register, the owner and revision were entered manually in the Sheet for the filmed state. That historical screenshot does not prove an agent write. The later connected verification records the actual API write and independent readback.
+The public source index contains placeholders for your own Drive files and Sheet. Credentials and private file IDs are excluded. The [connected verification](docs/google-verification.md) links the captured API transaction and independent readback; the execution record identifies older screenshots that used a manually updated Sheet.
 
 ## Evidence and limits
 

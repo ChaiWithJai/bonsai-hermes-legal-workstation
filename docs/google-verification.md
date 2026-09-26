@@ -7,3 +7,5 @@ A separate process then read Khizar at revision 1 from Google Sheets. Slack API 
 The captured session is `20260926_164920_a982cebd`. The [session export](../evidence/slack-google-assignment-session.json), [independent readback](../evidence/slack-google-readback.json) and [delivered reply](../evidence/slack-google-delivery.json) describe one observed transaction. The earlier direct Google assignment of APL-003 to Anthony is a separate run.
 
 The Google access token was supplied through a private local token file. Tokens expire, and automatic OAuth refresh is not implemented. The Sheet revision check is not an atomic concurrency guarantee. These runs establish the sample workflow, not production availability, legal judgment or general reliability.
+
+The saved owner and revision were verified, but the response's description of the obligation needs correction. It called the deliverable Northstar's obligation, while the quoted clause requires A+ Active to provide the schedule, accessibility plan and escalation leads. Northstar separately confirms rooms and participating staff. Successful persistence does not establish correct legal interpretation.
