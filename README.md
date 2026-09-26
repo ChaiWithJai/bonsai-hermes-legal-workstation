@@ -21,6 +21,8 @@ The [reproduction guide](https://gist.github.com/ChaiWithJai/8d4f27ee997b8ef07a4
 
 The installed profile has three explicit tools, an eight turn limit, medium reasoning, disabled memory and disabled tool search. The tools cannot send a client message or notify an owner. The files `SOUL.md` and `hermes-config.json` show the harness configuration. To DM the agent, supply Slack credentials to a Hermes profile with the same tool configuration; no credentials are included here. The [execution record](EVIDENCE.md) preserves the earlier runs, including a stale tool process, and the [connected verification](docs/google-verification.md) records the subsequent Drive read and Sheets assignment.
 
+For the recorded sampling configuration and its failed and successful clause-reading replays, see [model configuration](docs/model-configuration.md). The guide provides an isolated profile using this repository's local settings proxy.
+
 ## Use your own Google Drive and Sheet
 
 The six Markdown agreements can be uploaded to a Drive folder. Copy `source-index.example.json` to `source-index.json`, replace each file ID, and set your Sheet ID. Import `commitments.csv` into a tab named `Sheet1`, preserving the column order. The owner column is E, and the revision column is I. The sample Sheet must contain exactly one row per ID.
