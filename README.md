@@ -12,11 +12,13 @@ Hermes uses local Bonsai to read agreements and call the assignment tools. The t
 
 ## Get started
 
-With Python 3.10 or newer, print the unassigned commitments in the sample agreements:
+With Python 3.10 or newer, print the six unassigned commitments in the weekly review scenario:
 
 ```sh
 git clone https://github.com/ChaiWithJai/bonsai-hermes-legal-workstation.git
 cd bonsai-hermes-legal-workstation
+export LEGAL_DATA_DIR="$PWD/fixtures/weekly-review-v3"
+export LEGAL_WORKSTATION_STATE="$(mktemp -d)/state.json"
 python3 scripts/build_seed.py
 python3 -c 'import json, commitments; print(json.dumps(commitments.execute("review_commitments", {"unassigned_only": True}), indent=2))'
 ```
@@ -25,7 +27,7 @@ python3 -c 'import json, commitments; print(json.dumps(commitments.execute("revi
 
 | Resource | Use it to |
 | --- | --- |
-| [Setup](docs/setup.md) | Configure Bonsai and Hermes. |
+| [Setup](docs/setup.md) | Configure Bonsai and Hermes for the weekly review. |
 | [Architecture](docs/architecture.md) | Follow the tools, records and failure handling. |
 | [Model parameters](docs/parameter-guide.md) | Choose settings and inspect the supporting measurements. |
 | [Configuration capture](docs/recorded-configuration.md) | See the model and Hermes settings used in the recorded run. |
