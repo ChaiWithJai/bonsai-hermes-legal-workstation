@@ -46,6 +46,16 @@ class CommitmentsTest(unittest.TestCase):
         self.assertIn("Northstar will confirm room availability and participating staff separately", clause["clause"])
         self.assertEqual(row["due_date"], "2026-10-01")
 
+    def test_client_lookup_keeps_assigned_commitments_visible(self):
+        commitments.execute("assign_owner", {"commitment_id": "APL-008", "owner": "Khizar", "expected_revision": 0})
+        all_open = commitments.execute("review_commitments", {})
+        self.assertFalse(all_open["unassigned_only"])
+        row = next(item for item in all_open["commitments"] if item["id"] == "APL-008")
+        self.assertEqual(row["owner"], "Khizar")
+        unassigned = commitments.execute("review_commitments", {"unassigned_only": True})
+        self.assertTrue(unassigned["unassigned_only"])
+        self.assertNotIn("APL-008", [item["id"] for item in unassigned["commitments"]])
+
     def test_assignment_reports_mock_and_prevents_stale_write(self):
         result = commitments.execute("assign_owner", {
             "commitment_id": "APL-007", "owner": "Khizar", "expected_revision": 0})

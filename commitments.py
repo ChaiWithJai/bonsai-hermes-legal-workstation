@@ -145,10 +145,10 @@ def update_sheet(commitment_id, owner, previous_revision):
 def execute(name, arguments):
     if name == "review_commitments":
         items = [item for item in rows() if item["status"] != "complete"]
-        if arguments.get("unassigned_only", True):
+        if arguments.get("unassigned_only", False):
             items = [item for item in items if not item["owner"]]
         items.sort(key=lambda item: (not bool(item["due_date"]), item["due_date"], item["id"]))
-        return {"fictional": True, "count": len(items), "customer_count": len({item["customer"] for item in items}), "commitments": items,
+        return {"fictional": True, "unassigned_only": arguments.get("unassigned_only", False), "count": len(items), "customer_count": len({item["customer"] for item in items}), "commitments": items,
                 "register_kind": "google_sheets_api" if google_configured() else "local_fixture_mirrored_to_google_sheet"}
     commitment_id = arguments.get("commitment_id", "")
     matches = [item for item in rows() if item["id"] == commitment_id]
@@ -191,8 +191,8 @@ def tool(name, description, properties, required=(), readonly=True):
 
 
 TOOLS = [
-    tool("review_commitments", "Read fictional commitments, nearest due first.",
-         {"unassigned_only": {"type": "boolean"}}),
+    tool("review_commitments", "Read open commitments, nearest due first. Includes assigned work by default. Set unassigned_only=true only to find commitments needing an owner.",
+         {"unassigned_only": {"type": "boolean", "default": False, "description": "Use false for client or owner questions; true for the unassigned weekly review."}}),
     tool("get_commitment", "Read a commitment and the exact source clause; source_kind says whether Google Drive or a local copy supplied it.",
          {"commitment_id": {"type": "string"}}, ("commitment_id",)),
     tool("assign_owner", "Save an owner only after an explicit request and a current readback. Report sheet_sync exactly.",
