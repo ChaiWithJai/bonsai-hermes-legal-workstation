@@ -31,3 +31,4 @@ python3 -c 'import json, commitments; print(json.dumps(commitments.execute("revi
 | [Configuration capture](docs/recorded-configuration.md) | See the model and Hermes settings used in the recorded run. |
 | [Cost worksheet](docs/cost-analysis.md) | Compare cost per accepted assignment. |
 | [Development](docs/development.md) | Find the implementation and run its tests. |
+| [Weekly review scenario](fixtures/weekly-review-v3/README.md) | Review the connected Sheet and Drive read for the updated agreements. |

@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-09-27T04:39:21.109700+00:00",
+  "source": "private A+ Google Sheet and Drive folder, accessed through Google APIs",
+  "register_kind": "google_sheets_api",
+  "open_commitments": 6,
+  "drive_clauses_read": 6,
+  "drive_clauses_matching_versioned_files": 6,
+  "commitment_ids": [
+    "APL-003",
+    "APL-002",
+    "APL-008",
+    "APL-007",
+    "APL-009",
+    "APL-004"
+  ],
+  "writes_performed": false,
+  "hermes_sessions": [
+    {
+      "id": "20260927_004052_4c3161",
+      "question": "What commitments still need an owner?",
+      "tool": "review_commitments",
+      "mlflow_trace_id": "tr-f5a988c0910158957b3fb744cc991950",
+      "tool_source": "google_sheets_api"
+    },
+    {
+      "id": "20260927_004227_90780c",
+      "question": "What starts Harbor\u2019s acceptance window?",
+      "tool": "get_commitment",
+      "mlflow_trace_id": "tr-be856303db985221c47faa9e00b0e143",
+      "tool_source": "google_drive_api"
+    }
+  ],
+  "evaluation": {
+    "six_open_commitments_returned": true,
+    "harbor_delivery_trigger_preserved": true,
+    "source_kind_reported": true,
+    "sheet_assignment_tested": false,
+    "slack_v3_tested": false
+  },
+  "scope": "Two local Bonsai and Hermes CLI sessions with tool spans; this does not prove a v3 Slack assignment or production reliability.",
+  "mlflow_evaluation_run_id": "41ed5a039a954f2680da4a3d5fdc3e44"
+}

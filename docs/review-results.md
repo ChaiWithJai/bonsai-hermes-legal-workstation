@@ -19,7 +19,11 @@ The second review made seven model requests with 37,069 input tokens and 4,287 o
 
 Run `python3 -m unittest discover -s tests -v -p 'test_*.py'` from the repository root. The tests exercise isolated profile creation, MCP requests from another working directory, source context, assignment and readback, revision conflicts, Google adapter response handling and request-level cost accounting. They use temporary state and mocked Google responses.
 
-The Google adapter reads the Sheet when configured and verifies assignment writes with a fresh read. Those code paths still require a live authenticated transaction from Slack through Drive and Sheets. Tests do not prove OAuth permissions, a deployed gateway configuration or a successful remote write. No human acceptance decision has been recorded for these weekly reviews.
+The Google adapter reads the Sheet when configured and verifies assignment writes with a fresh read. Unit tests alone do not prove OAuth permissions, a deployed gateway configuration or a remote write. The connected Slack assignment and the separate v3 read below provide narrower live evidence. No human acceptance decision has been recorded for these weekly reviews.
+
+## Connected version 3 read
+
+The [September 27 verification](../evidence/weekly-review-v3-google-20260927/verification.json) read six open commitments from the v3 Google Sheet and retrieved their source clauses through the Drive API. All six clauses matched the versioned fixture files by SHA-256. A traced Hermes review used `review_commitments` with `google_sheets_api`; a second traced question used `get_commitment` for Harbor's acceptance clause with `google_drive_api`. The answer correctly left the deadline undated until A+ delivery is confirmed. The two MLflow tool traces are named in the verification record. These sessions made no assignment write and did not use Slack; the earlier connected Slack assignment remains a separate capture.
 
 ## Response-structure candidate
 
