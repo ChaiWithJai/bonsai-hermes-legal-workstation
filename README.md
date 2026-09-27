@@ -4,7 +4,7 @@ Ask "What commitments still need an owner?", check the agreement, and assign the
 
 ## How it works
 
-Hermes connects the conversation to commitment tools, with Bonsai running locally. The tools read the agreement, check the revision and verify the saved assignment. See the [architecture](docs/architecture.md) for data flow, persistence and failure handling.
+Hermes uses local Bonsai to read agreements and call the assignment tools. The tools check the record revision before saving an owner and verify the result in Google Sheets.
 
 [A recorded assignment](docs/google-verification.md) changed APL-002 from unassigned to Khizar and passed independent Sheet readback.
 
@@ -12,7 +12,7 @@ Hermes connects the conversation to commitment tools, with Bonsai running locall
 
 ## Get started
 
-The example uses sample agreements and requests. Python 3.10 or newer runs the sample register. The commands print its unassigned commitments; [setup](docs/setup.md) adds Bonsai, Hermes, Google and Slack.
+With Python 3.10 or newer, print the unassigned commitments in the sample agreements:
 
 ```sh
 git clone https://github.com/ChaiWithJai/bonsai-hermes-legal-workstation.git
@@ -25,8 +25,9 @@ python3 -c 'import json, commitments; print(json.dumps(commitments.execute("revi
 
 | Resource | Use it to |
 | --- | --- |
-| [Setup](docs/setup.md) | Run the agent and connect its inputs. |
-| [Model parameters](docs/parameter-guide.md) | Understand the settings, evidence and tuning tradeoffs. |
-| [Configuration capture](docs/recorded-configuration.md) | Inspect the recorded model and Hermes settings. |
+| [Setup](docs/setup.md) | Configure Bonsai and Hermes. |
+| [Architecture](docs/architecture.md) | Follow the tools, records and failure handling. |
+| [Model parameters](docs/parameter-guide.md) | Choose settings and inspect the supporting measurements. |
+| [Configuration capture](docs/recorded-configuration.md) | See the model and Hermes settings used in the recorded run. |
 | [Cost worksheet](docs/cost-analysis.md) | Compare cost per accepted assignment. |
 | [Development](docs/development.md) | Find the implementation and run its tests. |
