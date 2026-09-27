@@ -13,4 +13,4 @@ jobs:
       - name: Validate the current sample agreements
         env:
           LEGAL_DATA_DIR: fixtures/weekly-review-v3
-        run: python build_seed.py
+        run: python scripts/build_seed.py

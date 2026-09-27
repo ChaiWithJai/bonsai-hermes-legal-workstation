@@ -12,7 +12,7 @@ From the repository root, create an isolated profile:
 ```sh
 export LEGAL_DATA_DIR="$PWD/fixtures/weekly-review-v3"
 export LEGAL_WORKSTATION_STATE="$HOME/.local/state/bonsai-legal-v3-fixture/state.json"
-python3 build_seed.py
+python3 scripts/build_seed.py
 python3 setup.py --profile legal-weekly-review-v3-fixture
 ```
 
