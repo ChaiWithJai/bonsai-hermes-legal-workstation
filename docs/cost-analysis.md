@@ -33,3 +33,9 @@ The live APL-001 assignment to Anthony used three main model requests. Their com
 The [request records](../evidence/slack-anthony-request-usage.json) preserve per-call counts and exchange hashes. Main proxy request durations sum to 39.09 seconds; that sum excludes other parts of the Slack interaction and is not end-to-end latency. The assignment was independently verified in Google Sheets. Human acceptance, energy, review time and matched hosted-task costs remain unmeasured.
 
 Pass `--session evidence/slack-anthony-request-usage.json` to use the connected assignment records. Including the session-title request gives four requests, 9,735 input tokens and 1,436 output tokens. The calculator still prices every input token at the supplied rate, so cached-input discounts require a separate hosted comparison.
+
+## Open the interactive worksheet
+
+From the repository root, run `python3 scripts/serve_cost.py`, then open <http://127.0.0.1:5292>. The local page uses the connected Anthony assignment's request records, including the auxiliary session-title request. Start with task volume, duration and acceptance assumptions, then expand the local and hosted cost sections. Every assumption starts blank. The server calls the same `workload_tco.analyze` function as the CLI; the browser does not maintain a separate cost formula.
+
+The page shows recorded usage separately from buyer assumptions and reports cost per accepted task and an optimistic capacity bound. It applies one input price to all tokens, including cached input. The hosted path remains hypothetical until a matched task is measured. Inputs stay in the page and local HTTP request; the server does not save them. Stop the server with Ctrl-C.
