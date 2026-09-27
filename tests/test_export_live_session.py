@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 
-SCRIPT = Path(__file__).resolve().parents[1] / 'export_live_session.py'
+SCRIPT = Path(__file__).resolve().parents[1] / 'scripts' / 'export_live_session.py'
 
 class ExportTest(unittest.TestCase):
     def export(self, final_role, final_content, calls=None):
