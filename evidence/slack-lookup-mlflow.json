@@ -1,0 +1,7 @@
+{
+  "run_id": "dce1a8ffdbd148cba14d43c829e58397",
+  "experiment_id": "45",
+  "kind": "artifact review",
+  "slack_delivery_verified": true,
+  "native_tool_traces": "Separate instrumented tool spans; this run is not a model span."
+}

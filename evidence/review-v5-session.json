@@ -1,0 +1,20 @@
+{
+  "session_id": "20260926_163244_34d0e6",
+  "prompt": "What commitments still need an owner? Explain what needs attention before our weekly client review.",
+  "tool_calls": [
+    "mcp__legal_workstation__review_commitments",
+    "mcp__legal_workstation__review_commitments"
+  ],
+  "final_answer": "Here are the commitments that still need an owner (sample data register, review date September 25, 2026):\n\n- APL-003, Harbor Care Intelligence, needs an escalation contact named by September 29; per Section 3.1 of harbor-msa.md the response commitment requires a staffed owner and a backup.\n- APL-002, Aster Clinical AI, needs approval of the anonymized listening-session summary by September 30; per Section 4.2 of aster-msa.md confidentiality and client approval are conditions before circulation.\n- APL-008, Northstar Clinic Network, needs confirmation of site leads and backup contacts by October 1; per Section 2.1 of northstar-order-form.md named leads and the site schedule are required.\n- APL-007, Aster Clinical AI, needs recording deletion evidence checked by October 6; per Amendment 1 of aster-order-form.md the signed amendment changes the original retention obligation, so the clause itself needs review.\n- APL-009, Northstar Clinic Network, needs delivery of the quarterly program review by October 9; per Section 5.2 of northstar-msa.md the review must distinguish completed sessions from open concerns without clinical efficacy claims.\n- APL-004, Harbor Care Intelligence, needs workshop acceptance confirmation but has no due date because it depends on the delivery date, which is not yet recorded; per Section 5.1 of harbor-order-form.md the acceptance deadline is five business days after delivery.\n\nBefore the weekly client review, the APL-007 clause should be read and reconciled with the original retention terms, and the Harbor delivery date for APL-004 should be confirmed from the delivery context rather than estimated.\n\nNext action: retrieve the APL-007 clause for Aster Clinical AI to confirm what the deletion evidence must show.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 3,
+      "input_tokens": 3891,
+      "output_tokens": 1096,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

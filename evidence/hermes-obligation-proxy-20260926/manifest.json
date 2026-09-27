@@ -1,0 +1,5 @@
+{
+  "prompt": "Read APL-008 and its source clause. What does A+ Active owe, what does Northstar owe, and which deadline applies to each party? Cite the section. Do not assign anyone or change the register.",
+  "intervention": "Existing ambient-finance sampling proxy applies temperature=1, top_p=.95, top_k=20, min_p=.05, max_tokens<=1536, stream=false; removes reasoning_effort. Same SOUL, tools and read-only prompt. Combined settings intervention, not a single-variable test.",
+  "profile": "legal-obligation-proxy-20260926"
+}

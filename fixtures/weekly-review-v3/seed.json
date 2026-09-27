@@ -1,0 +1,91 @@
+{
+  "notice": "FICTIONAL DEMO DATA. No actual clients or signatures.",
+  "review_date": "2026-09-25",
+  "commitments": [
+    {
+      "id": "APL-001",
+      "customer": "Aster Clinical AI",
+      "obligation": "Deliver clinician-manager facilitation plan",
+      "due_date": "2026-09-28",
+      "owner": "Jai",
+      "status": "complete",
+      "source_file": "aster-order-form.md",
+      "source_section": "Section 2.1",
+      "revision": 1,
+      "evidence_needed": "Delivery log records plan delivered September 17 and client approval September 18, before the September 22 workshop."
+    },
+    {
+      "id": "APL-002",
+      "customer": "Aster Clinical AI",
+      "obligation": "Approve anonymized listening-session summary",
+      "due_date": "2026-09-30",
+      "owner": "",
+      "status": "open",
+      "source_file": "aster-msa.md",
+      "source_section": "Section 4.2",
+      "revision": 0,
+      "evidence_needed": "Confidentiality and client approval are conditions for circulation."
+    },
+    {
+      "id": "APL-003",
+      "customer": "Harbor Care Intelligence",
+      "obligation": "Name facilitation escalation contact",
+      "due_date": "2026-09-29",
+      "owner": "",
+      "status": "open",
+      "source_file": "harbor-msa.md",
+      "source_section": "Section 3.1",
+      "revision": 0,
+      "evidence_needed": "The response commitment needs a staffed owner and backup."
+    },
+    {
+      "id": "APL-004",
+      "customer": "Harbor Care Intelligence",
+      "obligation": "Confirm workshop acceptance",
+      "due_date": "",
+      "owner": "",
+      "status": "awaiting_delivery_confirmation",
+      "source_file": "harbor-order-form.md",
+      "source_section": "Section 5.1",
+      "revision": 0,
+      "evidence_needed": "Record the date A+ delivered workshop materials. The client acceptance deadline is five business days after that delivery, not after acceptance. Delivery has not been confirmed; do not assign blame or invent a date."
+    },
+    {
+      "id": "APL-007",
+      "customer": "Aster Clinical AI",
+      "obligation": "Check recording deletion evidence",
+      "due_date": "2026-10-06",
+      "owner": "",
+      "status": "open",
+      "source_file": "aster-order-form.md",
+      "source_section": "Amendment 1",
+      "revision": 0,
+      "evidence_needed": "The signed amendment changes the original retention obligation."
+    },
+    {
+      "id": "APL-008",
+      "customer": "Northstar Clinic Network",
+      "obligation": "Confirm site leads and backup contacts",
+      "due_date": "2026-10-01",
+      "owner": "",
+      "status": "open",
+      "source_file": "northstar-order-form.md",
+      "source_section": "Section 2.1",
+      "revision": 0,
+      "evidence_needed": "Named leads and site schedule."
+    },
+    {
+      "id": "APL-009",
+      "customer": "Northstar Clinic Network",
+      "obligation": "Deliver quarterly program review",
+      "due_date": "2026-10-09",
+      "owner": "",
+      "status": "open",
+      "source_file": "northstar-msa.md",
+      "source_section": "Section 5.2",
+      "revision": 0,
+      "evidence_needed": "Review distinguishes completed sessions and open concerns without clinical efficacy claims."
+    }
+  ],
+  "fixture_version": "weekly-review-v3"
+}

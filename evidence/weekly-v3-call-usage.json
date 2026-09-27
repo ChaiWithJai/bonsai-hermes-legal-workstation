@@ -1,0 +1,51 @@
+{
+  "session_id": "20260926_160447_d1bdf0",
+  "calls": [
+    {
+      "call": 1,
+      "input_tokens": 3035,
+      "output_tokens": 102,
+      "seconds": 12.2
+    },
+    {
+      "call": 2,
+      "input_tokens": 3812,
+      "output_tokens": 946,
+      "seconds": 39.6
+    },
+    {
+      "call": 3,
+      "input_tokens": 4905,
+      "output_tokens": 549,
+      "seconds": 25.2
+    },
+    {
+      "call": 4,
+      "input_tokens": 5682,
+      "output_tokens": 549,
+      "seconds": 24.5
+    },
+    {
+      "call": 5,
+      "input_tokens": 5893,
+      "output_tokens": 850,
+      "seconds": 34.8
+    },
+    {
+      "call": 6,
+      "input_tokens": 6459,
+      "output_tokens": 691,
+      "seconds": 31.5
+    },
+    {
+      "call": 7,
+      "input_tokens": 7283,
+      "output_tokens": 600,
+      "seconds": 28.6
+    }
+  ],
+  "total_input_tokens": 37069,
+  "total_output_tokens": 4287,
+  "scope": "One logged model turn; repeated context included; cache discounts not modeled",
+  "log_sha256": "66802c7dbd8c89286a2ccb9e05e895007987fd609b2bb663a237aed69df86af1"
+}

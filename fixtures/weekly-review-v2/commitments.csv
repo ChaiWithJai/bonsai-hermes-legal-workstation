@@ -1,0 +1,8 @@
+id,customer,obligation,due_date,owner,status,source_file,source_section,revision,evidence_needed
+APL-001,Aster Clinical AI,Deliver clinician-manager facilitation plan,2026-09-28,Jai,complete,aster-order-form.md,Section 2.1,1,"Delivery log records plan delivered September 17 and client approval September 18, before the September 22 workshop."
+APL-002,Aster Clinical AI,Approve anonymized listening-session summary,2026-09-30,,open,aster-msa.md,Section 4.2,0,Confidentiality and client approval are conditions for circulation.
+APL-003,Harbor Care Intelligence,Name facilitation escalation contact,2026-09-29,,open,harbor-msa.md,Section 3.1,0,The response commitment needs a staffed owner and backup.
+APL-004,Harbor Care Intelligence,Confirm workshop acceptance,,,waiting_on_client,harbor-order-form.md,Section 5.1,0,A client dependency prevents a reliable deadline.
+APL-007,Aster Clinical AI,Check recording deletion evidence,2026-10-06,,open,aster-order-form.md,Amendment 1,0,The signed amendment changes the original retention obligation.
+APL-008,Northstar Clinic Network,Confirm site leads and backup contacts,2026-10-01,,open,northstar-order-form.md,Section 2.1,0,Named leads and site schedule.
+APL-009,Northstar Clinic Network,Deliver quarterly program review,2026-10-09,,open,northstar-msa.md,Section 5.2,0,Review distinguishes completed sessions and open concerns without clinical efficacy claims.

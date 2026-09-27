@@ -1,0 +1,12 @@
+{
+  "session_id": "20260926_212555_ac26ae1b",
+  "final_answer": "Updated <[private Sheet row URL]|APL-002>: owner changed from unassigned to Khizar. Verified in Google Sheets at revision 1; no notification was sent.",
+  "readback": {
+    "id": "APL-002",
+    "owner": "Khizar",
+    "revision": 1
+  },
+  "previous_owner": "",
+  "sentence_count": 2,
+  "scope": "Live Slack assignment; independent Google API readback; exact private row URL omitted from public text."
+}

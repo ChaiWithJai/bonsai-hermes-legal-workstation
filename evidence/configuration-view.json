@@ -1,0 +1,41 @@
+{
+  "captured_at_utc": "2026-09-27T02:06:49.864440+00:00",
+  "scope": "Installed profile captured after the recorded runs; not an immutable at-run snapshot. Credentials, paths and tool environment omitted.",
+  "profile": "commitments",
+  "profile_file_sha256": "40b477d5c6985e611e4f5ef9af017e5af3054d87b6cf47c4bf63d440b2427210",
+  "model": {
+    "default": "bonsai-ui-public-ternary-bonsai2",
+    "provider": "custom",
+    "base_url": "http://127.0.0.1:5266/v1",
+    "api_mode": "chat_completions",
+    "streaming": false,
+    "context_length": 65536
+  },
+  "agent": {
+    "max_turns": 8,
+    "reasoning_effort": "medium"
+  },
+  "mcp_server_names": [
+    "commitments",
+    "finance_workstation"
+  ],
+  "recorded_request": {
+    "model": "bonsai-ui-public-ternary-bonsai2",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.05,
+    "max_tokens": 1536,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": true,
+      "reasoning_effort": "medium"
+    }
+  },
+  "recorded_request_source": {
+    "exchange_id": "d69639861e194270b855c02d54d01fa9",
+    "sha256": "7898acd14f6444de42245acab8de25e20428179d4a478568c83b2e373cbc1119",
+    "session_id": "20260926_212555_ac26ae1b",
+    "evidence": "slack-short-receipt.json"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "commitment_id": "APL-008",
+  "owner": "Khizar",
+  "revision": 1,
+  "source_kind": "google_drive_api",
+  "verification": "Independent Google API read after Slack-triggered Hermes assignment"
+}

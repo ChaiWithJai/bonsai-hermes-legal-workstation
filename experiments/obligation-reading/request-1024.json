@@ -1,0 +1,16 @@
+{
+  "model": "bonsai-ui-public-ternary-bonsai2",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Read Section 2.1 of the supplied agreement. Return a JSON object with provider, provider_deliverables, provider_due_date, customer, customer_deliverables and customer_due_date. Use an ISO date when the section states one and null when it does not. Keep the obligations of the two parties separate. Do not infer a date for the customer.\n\n# Northstar Clinic Network order form\n\nFICTIONAL DEMO DOCUMENT. The signing state is a scenario assumption, and no real signature is represented.\n\nOrder form date: September 1, 2026. Service: facilitation across three clinic sites, with two sessions per site and one leadership review. Fictional fee: $42,000. The fee is context for the scenario and is not used in the commitments evaluation.\n\n## Section 2.1, site plan\n\nA+ Active will provide the site schedule, accessibility plan and named escalation leads by October 1, 2026. Northstar will confirm room availability and participating staff separately.\n\n## Section 4.3, change control\n\nA+ Active will record a requested scope change in writing and route it for human approval before promising more sessions, extending the term or changing fees. The agent may draft a review note, but may not accept the change.\n"
+    }
+  ],
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 20,
+  "min_p": 0.05,
+  "seed": 42,
+  "stream": false,
+  "max_tokens": 1024
+}

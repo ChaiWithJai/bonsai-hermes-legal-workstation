@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-09-27T00:58:23.160834+00:00",
+  "register_kind": "google_sheets_api",
+  "source_checks": [
+    {
+      "commitment_id": "APL-001",
+      "source_kind": "google_drive_api",
+      "clause_sha256": "7b17a7fd494aed43351046e94715d3cf359f5d4056760b51e1b6eaeebb03695a",
+      "revision": 0
+    },
+    {
+      "commitment_id": "APL-003",
+      "source_kind": "google_drive_api",
+      "clause_sha256": "b83910f44087bc4229aa00c86bf0f482f45c1d04d8a845c1344be8feb9b653cb",
+      "revision": 1
+    },
+    {
+      "commitment_id": "APL-002",
+      "source_kind": "google_drive_api",
+      "clause_sha256": "010f764fda1640264c881ccbbd979a5ba180745b354cee2aeea9fd49617136f5",
+      "revision": 0
+    },
+    {
+      "commitment_id": "APL-008",
+      "source_kind": "google_drive_api",
+      "clause_sha256": "bed2bb0b95e0afda989788b4e6f8de6f4fb5c7a34035ad61fcca289910502caa",
+      "revision": 2
+    },
+    {
+      "commitment_id": "APL-007",
+      "source_kind": "google_drive_api",
+      "clause_sha256": "9169b986e8ec6713f7f9dcf42b2436e731707be6945edf3a4044c072fd535755",
+      "revision": 1
+    },
+    {
+      "commitment_id": "APL-009",
+      "source_kind": "google_drive_api",
+      "clause_sha256": "f0da673fe63d3c6a4c8f2df23276ec9092c91fa15ccee458aa25a7710cdc9b18",
+      "revision": 0
+    },
+    {
+      "commitment_id": "APL-004",
+      "source_kind": "google_drive_api",
+      "clause_sha256": "b1e1b69ef4e4c6c3a3e441e86dcdb384d50924185387559e08d4ccef9ab3e742",
+      "revision": 0
+    }
+  ],
+  "writes_performed": false
+}

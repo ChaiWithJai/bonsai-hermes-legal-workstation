@@ -1,0 +1,7 @@
+{
+  "commitment_id": "APL-003",
+  "owner": "Anthony",
+  "revision": 1,
+  "source_kind": "google_drive_api",
+  "verification": "Independent Google API read after Hermes assignment"
+}

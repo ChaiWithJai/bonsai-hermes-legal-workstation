@@ -1,0 +1,27 @@
+{
+  "session_id": "20260926_180100_1c2b3f",
+  "scope": "Read-only local Hermes integration, no Slack or Google call",
+  "execution": {
+    "exit_code": 0,
+    "elapsed_seconds": 78.50815662500099,
+    "queue_job": "hermes-obligation-read-1790460058349067000"
+  },
+  "tool_names": [
+    "mcp__legal_workstation__get_commitment"
+  ],
+  "final_answer_present": false,
+  "customer_response_accepted": false,
+  "finding": "CLI returned unfinished reasoning text; persisted last assistant content is empty despite exit zero and stop finish reason.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 2,
+      "input_tokens": 3701,
+      "output_tokens": 627,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "human_review": "pending",
+  "raw_diagnostics": "Retained privately in profile and local evidence; not published as customer-facing output"
+}

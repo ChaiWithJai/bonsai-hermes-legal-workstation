@@ -1,0 +1,17 @@
+{
+  "session_id": "20260926_164046_5acdd5",
+  "prompt": "Read APL-007 and assign it to Khizar using its current revision. Tell me what changed and whether Google Sheets was updated.",
+  "tool_calls": [],
+  "final_answer": "I can\u2019t complete that assignment because I don\u2019t have access to the commitment register or the assignment tool in this session. I also can\u2019t claim to have read APL-007 or confirm whether Google Sheets was updated.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 1,
+      "input_tokens": 1086,
+      "output_tokens": 560,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

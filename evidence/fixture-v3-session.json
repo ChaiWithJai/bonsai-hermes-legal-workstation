@@ -1,0 +1,19 @@
+{
+  "session_id": "20260926_162807_f487c7",
+  "prompt": "What commitments still need an owner? Explain what needs attention before our weekly client review.",
+  "tool_calls": [
+    "mcp__legal_workstation__review_commitments"
+  ],
+  "final_answer": "The register (sample data) shows six unassigned commitments, in due-date order:\n\n1. APL-003 \u2014 Harbor Care Intelligence \u2014 Name facilitation escalation contact \u2014 due Sept 29 \u2014 depends on having a staffed owner plus backup.\n2. APL-002 \u2014 Aster Clinical AI \u2014 Approve anonymized listening-session summary \u2014 due Sept 30 \u2014 circulation is conditioned on confidentiality and client approval.\n3. APL-008 \u2014 Northstar Clinic Network \u2014 Confirm site leads and backup contacts \u2014 due Oct 1 \u2014 needs named leads and a site schedule.\n4. APL-007 \u2014 Aster Clinical AI \u2014 Check recording deletion evidence \u2014 due Oct 6 \u2014 Amendment 1 changed the original retention obligation, so verify the signed amendment before confirming compliance.\n5. APL-009 \u2014 Northstar Clinic Network \u2014 Deliver quarterly program review \u2014 due Oct 9 \u2014 must distinguish completed sessions and open concerns without clinical efficacy claims.\n6. APL-004 \u2014 Harbor Care Intelligence \u2014 Confirm workshop acceptance \u2014 undated \u2014 depends on the unconfirmed workshop-material delivery date; acceptance is due five business days after delivery, so no deadline can be set yet.\n\nAttention before the weekly review: the APL-004 delivery is the blocking item, since its deadline cannot be calculated until delivery is confirmed, and I should not assign a date or blame anyone. The Harbor escalation contact is the earliest dated item and directly affects the client relationship, so it is the most urgent to assign and staff.\n\nUnresolved action before the review: confirm whether and when the workshop materials for APL-004 were delivered, so I can set its acceptance deadline and assign it properly.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 2,
+      "input_tokens": 3575,
+      "output_tokens": 947,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

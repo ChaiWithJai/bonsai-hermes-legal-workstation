@@ -1,0 +1,8 @@
+{
+  "status": "verified_local_archive",
+  "sha256": "314ced60cecd6188a3f31e731eb74c55af829324adf880f4b58689dc48c27447",
+  "file_count": 14,
+  "native_traces": 2,
+  "scope": "Selected files verified byte for byte after archive readback; not a full MLflow database restore",
+  "mongodb_replication": "unavailable"
+}

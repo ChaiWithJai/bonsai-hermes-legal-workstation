@@ -1,0 +1,56 @@
+{
+  "request": {
+    "model": "bonsai-ui-public-ternary-bonsai2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Read Section 2.1 of the supplied agreement. Return a JSON object with provider, provider_deliverables, provider_due_date, customer, customer_deliverables and customer_due_date. Use an ISO date when the section states one and null when it does not. Keep the obligations of the two parties separate. Do not infer a date for the customer.\n\n# Northstar Clinic Network order form\n\nFICTIONAL DEMO DOCUMENT. The signing state is a scenario assumption, and no real signature is represented.\n\nOrder form date: September 1, 2026. Service: facilitation across three clinic sites, with two sessions per site and one leadership review. Fictional fee: $42,000. The fee is context for the scenario and is not used in the commitments evaluation.\n\n## Section 2.1, site plan\n\nA+ Active will provide the site schedule, accessibility plan and named escalation leads by October 1, 2026. Northstar will confirm room availability and participating staff separately.\n\n## Section 4.3, change control\n\nA+ Active will record a requested scope change in writing and route it for human approval before promising more sessions, extending the term or changing fees. The agent may draft a review note, but may not accept the change.\n"
+      }
+    ],
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.05,
+    "seed": 42,
+    "stream": false,
+    "max_tokens": 1024
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"provider\": \"A+ Active\",\n  \"provider_deliverables\": [\n    \"site schedule\",\n    \"accessibility plan\",\n    \"named escalation leads\"\n  ],\n  \"provider_due_date\": \"2026-10-01\",\n  \"customer\": \"Northstar\",\n  \"customer_deliverables\": [\n    \"confirm room availability\",\n    \"participating staff\"\n  ],\n  \"customer_due_date\": null\n}",
+          "reasoning_content": "We need answer user's request. Need read Section 2.1. Return JSON object with provider, provider_deliverables, provider_due_date, customer, customer_deliverables and customer_due_date. Use ISO date when section states one and null when it does not. Keep obligations separate. Do not infer date for customer.\n\nSection 2.1: \"A+ Active will provide the site schedule, accessibility plan and named escalation leads by October 1, 2026. Northstar will confirm room availability and participating staff separately.\"\n\nNeed JSON. Provider likely A+ Active. Provider deliverables: site schedule, accessibility plan, named escalation leads. Provider due date: 2026-10-01. Customer: Northstar. Customer deliverables: confirm room availability and participating staff. Customer due date: null (separately, no date). Ensure valid JSON only? User asks return JSON object. We should output only JSON, no markdown likely.\n\nNeed be careful: provider deliverables maybe array or string? JSON object with fields. Could use arrays for deliverables. If not specified, arrays good. ISO date. Need null. Let's craft.\n"
+        }
+      }
+    ],
+    "created": 1790459839,
+    "model": "bonsai-ui-public-ternary-bonsai2",
+    "system_fingerprint": "b10709-9a9394a89",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 355,
+      "prompt_tokens": 320,
+      "total_tokens": 675,
+      "prompt_tokens_details": {
+        "cached_tokens": 316
+      }
+    },
+    "id": "chatcmpl-jGgzYzynBm4U5Du3uZvPwsooJ5naULiG",
+    "timings": {
+      "cache_n": 316,
+      "prompt_n": 4,
+      "prompt_ms": 158.851,
+      "prompt_per_token_ms": 39.71275,
+      "prompt_per_second": 25.180829834247188,
+      "predicted_n": 355,
+      "predicted_ms": 31537.98,
+      "predicted_per_token_ms": 89.09033898305084,
+      "predicted_per_second": 11.224561623794548
+    }
+  },
+  "observed_seconds": 31.81937525000103
+}

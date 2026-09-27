@@ -1,0 +1,83 @@
+{
+  "session_id": "20260926_211345_ae6c4048",
+  "main_requests": [
+    {
+      "exchange": "710315964cc242f28f583e607376c3a4.json",
+      "sha256": "7606128a2df81dfd9d53fce75d80c38caa88cda7351e636e21f826227af41012",
+      "http_status": 200,
+      "seconds": 8.768720874999417,
+      "message_count": 2,
+      "usage": {
+        "completion_tokens": 186,
+        "prompt_tokens": 2816,
+        "total_tokens": 3002,
+        "prompt_tokens_details": {
+          "cached_tokens": 2316
+        }
+      },
+      "finish_reason": "tool_calls"
+    },
+    {
+      "exchange": "664c84b12add418ba5971b4c65c235f5.json",
+      "sha256": "42a12b52e40de01489e38278aec65b6feb8fdb9430ab77aca8a1100669dba717",
+      "http_status": 200,
+      "seconds": 7.265762542003358,
+      "message_count": 4,
+      "usage": {
+        "completion_tokens": 162,
+        "prompt_tokens": 3161,
+        "total_tokens": 3323,
+        "prompt_tokens_details": {
+          "cached_tokens": 2812
+        }
+      },
+      "finish_reason": "tool_calls"
+    },
+    {
+      "exchange": "345d6387437548f7820ca614b8e75bf3.json",
+      "sha256": "c189e554e811a411b4fb02770a114125e919e2f47574a7b694e7f28056092035",
+      "http_status": 200,
+      "seconds": 23.05477724999946,
+      "message_count": 6,
+      "usage": {
+        "completion_tokens": 573,
+        "prompt_tokens": 3475,
+        "total_tokens": 4048,
+        "prompt_tokens_details": {
+          "cached_tokens": 3157
+        }
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "session_title_requests": [
+    {
+      "exchange": "0c8a8adf15c240d8b04b9bd2c3079cb2.json",
+      "sha256": "02fe63a8c62c98fcdd091273c2c9db7c74fd734f209787d69a7b20398c3ae4a1",
+      "http_status": 200,
+      "seconds": 19.51770741600194,
+      "message_count": 2,
+      "usage": {
+        "completion_tokens": 515,
+        "prompt_tokens": 283,
+        "total_tokens": 798,
+        "prompt_tokens_details": {
+          "cached_tokens": 241
+        }
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "main_totals": {
+    "prompt_tokens": 9452,
+    "completion_tokens": 921,
+    "cached_prompt_tokens": 8285,
+    "sum_proxy_request_seconds": 39.089260667002236
+  },
+  "limits": [
+    "Proxy durations are not complete Slack end-to-end latency.",
+    "Warm cache; not a cold-start benchmark.",
+    "Hardware, energy, operator review and matched hosted task costs remain unmeasured.",
+    "Human acceptance pending."
+  ]
+}

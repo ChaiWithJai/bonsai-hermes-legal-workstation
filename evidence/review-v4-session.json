@@ -1,0 +1,19 @@
+{
+  "session_id": "20260926_163003_a43c8f",
+  "prompt": "What commitments still need an owner? Explain what needs attention before our weekly client review.",
+  "tool_calls": [
+    "mcp__legal_workstation__review_commitments"
+  ],
+  "final_answer": "Six commitments are still unassigned in the sample register, and they span four clients across the next two weeks.\n\n- Harbor Care Intelligence (APL-003) needs a facilitation escalation contact named by 2026-09-29, and the next step depends on first staffing the owner and a backup for the response commitment.\n- Aster Clinical AI (APL-002) needs its anonymized listening-session summary approved for circulation by 2026-09-30, and circulation depends on confidentiality being confirmed and client approval before any distribution.\n- Northstar Clinic Network (APL-008) needs site leads and backup contacts confirmed by 2026-10-01, which in turn depends on receiving the named leads and site schedule.\n- Aster Clinical AI (APL-007) needs recording deletion evidence checked by 2026-10-06, and the work depends on the signed amendment that changed the original retention obligation, so the clause should be read before assignment.\n- Northstar Clinic Network (APL-009) needs the quarterly program review delivered by 2026-10-09, and the review must distinguish completed sessions from open concerns without clinical efficacy claims.\n- Harbor Care Intelligence (APL-004) needs workshop acceptance confirmed, and its deadline is undated in the register because it is five business days after delivery, which has not been confirmed yet.\n\nNext action: confirm the Harbor delivery date so APL-004 can be dated before the review meeting, and assign APL-003 as the priority since it is due first.",
+  "usage": [
+    {
+      "model": "bonsai-ui-public-ternary-bonsai2",
+      "api_call_count": 2,
+      "input_tokens": 3648,
+      "output_tokens": 946,
+      "reasoning_tokens": 0,
+      "cost_status": "unknown"
+    }
+  ],
+  "scope": "One live Hermes/Bonsai session with fictional local fixture. No Google or Slack tool was called."
+}

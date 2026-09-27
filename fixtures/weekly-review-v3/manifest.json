@@ -1,0 +1,37 @@
+{
+  "version": "weekly-review-v3",
+  "review_date": "2026-09-25",
+  "source": "Local Founding Sales PDF, SHA256 ee6b8ea891495ddb00f087ac64a08d9158eeb4385b7aea926b2827ef80af40ba",
+  "commercial_structure_pages": [
+    243,
+    279,
+    280,
+    281,
+    282,
+    298,
+    299,
+    300,
+    301,
+    336,
+    337
+  ],
+  "interpretation": "Book informs separation of order terms, payment, delivery handoff, stakeholders and success evidence. It supplies no legal clauses. Account histories and values are scenario inputs.",
+  "changes": [
+    "Added delivery handoffs with explicit unknown contacts and payment status",
+    "Recorded early Aster plan delivery and approval; marked APL-001 complete",
+    "Preserved original agreement clauses and historical v1 captures",
+    "Replaced unsupported client-side hold with unconfirmed delivery trigger for Harbor acceptance"
+  ],
+  "sha256": {
+    "agreements/aster-handoff.md": "ba0945c1a5426042ac6c10bd7687e0dd8d3055b6d40b0ef498df25fc97f555e6",
+    "agreements/aster-msa.md": "d5d3d3c9fa488db7181951a71b1dab8b376f0c1f8758f8623f21c1221595ef59",
+    "agreements/aster-order-form.md": "5f18cc1eacc89e8cc73db3b9d69eed2e4cddf2ffdc455d3d9a71ca5e3be08a81",
+    "agreements/harbor-handoff.md": "d753b65642b2b7825114351e85c128b027538e04361732dd8c7ecf31a176753b",
+    "agreements/harbor-msa.md": "b22bc38abda16ab5b47f3bf1a753b4a63176e1f3dd56c8fcb2ee0a0911320876",
+    "agreements/harbor-order-form.md": "63cee0371a42a88d7d189b09a7dd5f9695a88af178efeae6680a013b5bec03f1",
+    "agreements/northstar-handoff.md": "28b1d37f7fd33073546115ae532ed5a3e80eff280613b33f00b96ab7611cb923",
+    "agreements/northstar-msa.md": "ffbd3dcf5cfab46469a9c82c3cc7683e0d598f7a956b34dd8191862eb7ce9f5c",
+    "agreements/northstar-order-form.md": "157d9aab5bb21eab0bcda80638990bef8ff6d70cf5c1374468a523c290f1f7e5",
+    "seed.json": "3d4f27915deb820237ad87f65022a328e3012388d276b1d005211b2b933dcc97"
+  }
+}

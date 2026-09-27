@@ -1,0 +1,11 @@
+{
+  "scope": "Read-only Hermes replay with local agreement, no Slack or Google access",
+  "profile": "legal-obligation-read-20260926",
+  "prompt": "Read APL-008 and its source clause. What does A+ Active owe, what does Northstar owe, and which deadline applies to each party? Cite the section. Do not assign anyone or change the register.",
+  "files": {
+    "commitments.py": "eae1be2d2e6d313cdb887f203ec7003346dafd14f25afde6071c8d514f08c9c5",
+    "SOUL.md": "ad50fde705f4d1134be8236b4cb0ea3a4928e905126eaa4e08dc22897201d0c4",
+    "seed.json": "d33e91378a12a2b6e63d85eda793901630c9a9d81d55409934725c414c493313",
+    "agreements/northstar-order-form.md": "157d9aab5bb21eab0bcda80638990bef8ff6d70cf5c1374468a523c290f1f7e5"
+  }
+}

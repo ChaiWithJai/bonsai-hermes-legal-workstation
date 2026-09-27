@@ -1,0 +1,32 @@
+{
+  "session_id": "20260926_162807_f487c7",
+  "checks": {
+    "all_six_ids": true,
+    "completed_plan_excluded": true,
+    "delivery_trigger_preserved": true,
+    "under_200_words": false
+  },
+  "word_count": 261,
+  "review": "Agent review, not a human annotation. Deadline trigger correct; fragments, em dashes and repetitive closing remain. No Google or Slack transaction.",
+  "usage": {
+    "session_id": "20260926_162807_f487c7",
+    "calls": [
+      {
+        "call": 1,
+        "input_tokens": 2761,
+        "output_tokens": 75,
+        "seconds": 12.4
+      },
+      {
+        "call": 2,
+        "input_tokens": 3571,
+        "output_tokens": 872,
+        "seconds": 38.9
+      }
+    ],
+    "total_input_tokens": 6332,
+    "total_output_tokens": 947,
+    "scope": "One logged model turn; repeated context included; cache discounts not modeled",
+    "log_sha256": "3a0db5c29729caee10c2debd08868c1887f55233f08ce802c68979198acc391a"
+  }
+}
