@@ -25,3 +25,7 @@ A fresh Slack question asked what A+ owed by October 1, what Northstar needed to
 The [repaired reply](../evidence/slack-assigned-lookup-repaired.json), session `20260926_210628_2e6332fa`, correctly returned APL-008, all three A+ deliverables, Northstar's separate confirmations, and Khizar at register revision 2. Its delivery was verified in the Slack thread. No assignment changed during that request. The [failed reply](../evidence/slack-assigned-lookup-failure.json) remains available for comparison.
 
 All 22 deterministic tests passed, including a regression proving assigned records remain visible in a client lookup. The [MLflow review record](../evidence/slack-lookup-mlflow.json) links the saved responses. Human acceptance remains pending; the artifact review run does not measure model latency.
+
+![Corrected Northstar reply in Slack, showing the separate party obligations and recorded owner](../evidence/slack-northstar-repaired.png)
+
+The image is a direct browser capture of the reply panel. The full window capture remains in the private presentation assets.
