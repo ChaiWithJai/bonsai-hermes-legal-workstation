@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-26",
+  "commitment_id": "APL-008",
+  "method": "Google Sheets browser edit followed by page reload and cell readback",
+  "changed_cells": [
+    "C7",
+    "J7",
+    "I7"
+  ],
+  "owner_preserved": "Khizar",
+  "previous_revision": 1,
+  "revision": 2,
+  "api_status": "HTTP 401; credential refresh required before another agent transaction",
+  "agent_transaction": false,
+  "readback": [
+    {
+      "cell": "C7",
+      "text": [
+        "    - textbox [ref=e59]: \"A+ Active must provide the site schedule, accessibility plan and named escalation leads\\n\""
+      ]
+    },
+    {
+      "cell": "E7",
+      "text": [
+        "    - textbox [ref=e59]: \"Khizar\\n\""
+      ]
+    },
+    {
+      "cell": "I7",
+      "text": [
+        "    - textbox [ref=e59]: \"2\\n\""
+      ]
+    },
+    {
+      "cell": "J7",
+      "text": [
+        "    - textbox [ref=e59]: \"The site schedule, accessibility plan and named escalation leads provided by A+ Active. Northstar confirms room availability and participating staff separately.\\n\""
+      ]
+    }
+  ]
+}
