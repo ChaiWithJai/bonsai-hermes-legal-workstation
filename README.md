@@ -6,9 +6,9 @@ Ask "What commitments still need an owner?", check the agreement, and assign the
 
 Hermes uses local Bonsai to read agreements and call the assignment tools. The tools check the record revision before saving an owner and verify the result in Google Sheets.
 
-[A connected weekly review](evidence/weekly-review-v3-google-20260927/slack-assignment.json) found six open commitments across three clients. From the same Slack thread, the bot changed APL-003 from unassigned to Anthony in Google Sheets at revision 1; an independent API read confirmed the saved owner.
+[A connected weekly review](evidence/weekly-review-v3-google-20260927/slack-assignment.json) found six open commitments across three clients. From the same Slack thread, the bot changed APL-003 from unassigned to Anthony in Google Sheets at revision 1; an independent API read confirmed the saved owner. The [MLflow capture](evidence/weekly-review-v3-google-20260927/mlflow-assignment.jpg) shows the assignment tool call.
 
-![Assignment confirmation in Slack](evidence/slack-short-receipt.png)
+![Earlier assignment confirmation in Slack](evidence/slack-short-receipt.png)
 
 ## Get started
 

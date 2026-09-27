@@ -27,6 +27,8 @@ The [September 27 verification](../evidence/weekly-review-v3-google-20260927/ver
 
 The [connected Slack transaction](../evidence/weekly-review-v3-google-20260927/slack-assignment.json) asked the weekly review question, selected APL-003 as the first dated decision, retrieved its Drive context and assigned Anthony. The Sheet changed from no owner at revision 0 to Anthony at revision 1. A separate Google API read confirmed Anthony and five remaining unassigned commitments. The evidence record links the Slack receipt, Hermes session and three MLflow tool traces. It does not establish counsel approval or recurring reliability.
 
+The [MLflow assignment capture](../evidence/weekly-review-v3-google-20260927/mlflow-assignment.jpg) shows the live `assign_owner` tool span with the requested owner and saved revision. This is a tool trace, not a model-generation trace; the independent Google readback is recorded in the transaction record above.
+
 ## Response-structure candidate
 
 Session `20260926_163003_a43c8f` used the same version 3 fixture with instructions for complete sentences and one closing action. It removed the dash-separated fragments but incorrectly said the six commitments span four clients; the register contains three. It also exceeded the 200-word guidance. The candidate is not accepted. The captured output is in [review-v4-session.json](../evidence/review-v4-session.json).
