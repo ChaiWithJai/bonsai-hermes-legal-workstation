@@ -6,7 +6,7 @@ Ask "What commitments still need an owner?", check the agreement, and assign the
 
 Hermes uses local Bonsai to read agreements and call the assignment tools. The tools check the record revision before saving an owner and verify the result in Google Sheets.
 
-[A recorded assignment](docs/google-verification.md) changed APL-002 from unassigned to Khizar and passed independent Sheet readback.
+[A connected weekly review](evidence/weekly-review-v3-google-20260927/slack-assignment.json) found six open commitments across three clients. From the same Slack thread, the bot changed APL-003 from unassigned to Anthony in Google Sheets at revision 1; an independent API read confirmed the saved owner.
 
 ![Assignment confirmation in Slack](evidence/slack-short-receipt.png)
 
@@ -31,4 +31,4 @@ python3 -c 'import json, commitments; print(json.dumps(commitments.execute("revi
 | [Configuration capture](docs/recorded-configuration.md) | See the model and Hermes settings used in the recorded run. |
 | [Cost worksheet](docs/cost-analysis.md) | Compare cost per accepted assignment. |
 | [Development](docs/development.md) | Find the implementation and run its tests. |
-| [Weekly review scenario](fixtures/weekly-review-v3/README.md) | Review the connected Sheet and Drive read for the updated agreements. |
+| [Weekly review scenario](fixtures/weekly-review-v3/README.md) | Review the connected Slack, Drive and Sheet transaction for the updated agreements. |
