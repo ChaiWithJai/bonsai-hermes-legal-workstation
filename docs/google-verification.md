@@ -17,3 +17,11 @@ The initial register summary also omitted the accessibility plan and introduced 
 The correction was made through the Google Sheets browser interface, then verified after reloading the page. The [cell readback](../evidence/northstar-register-correction.json) records that maintenance operation separately from the earlier agent assignment. The API credential returned HTTP 401 during this check; a fresh Slack transaction still requires restored API access and verification of the model's answer.
 
 Google API access was subsequently restored using the existing demo account authorization. The [renewed read check](../evidence/google-access-renewed.json) retrieved all seven open commitments from Sheets and each supporting clause through Drive, including APL-008 at revision 2. That check made no writes and does not establish a new Slack or model result. Automatic token refresh remains unimplemented.
+
+## Corrected client review
+
+A fresh Slack question asked what A+ owed by October 1, what Northstar needed to confirm separately, and who owned the work. The first replay after updating the profile searched only unassigned commitments and substituted the unrelated quarterly review. The lookup now includes assigned commitments by default, while the weekly owner review explicitly requests unassigned records. The result identifies which filter was applied.
+
+The [repaired reply](../evidence/slack-assigned-lookup-repaired.json), session `20260926_210628_2e6332fa`, correctly returned APL-008, all three A+ deliverables, Northstar's separate confirmations, and Khizar at register revision 2. Its delivery was verified in the Slack thread. No assignment changed during that request. The [failed reply](../evidence/slack-assigned-lookup-failure.json) remains available for comparison.
+
+All 22 deterministic tests passed, including a regression proving assigned records remain visible in a client lookup. The [MLflow review record](../evidence/slack-lookup-mlflow.json) links the saved responses. Human acceptance remains pending; the artifact review run does not measure model latency.
