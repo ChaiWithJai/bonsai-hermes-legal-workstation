@@ -35,3 +35,7 @@ The image is a direct browser capture of the reply panel. The full window captur
 A later live Slack question, "What commitments still need an owner?", returned APL-001, APL-002, APL-009 and APL-004 in date order with undated work last. An independent Google read matched those four rows. The [weekly reply](../evidence/slack-weekly-current.json) retains its remaining wording issues about relative dates and Harbor's dependency.
 
 The next Slack request asked the agent to read APL-001 and assign its facilitation plan to Anthony without notifying anyone. The agent read the Drive clause and saved Anthony at register revision 1. An independent API read confirmed the owner and revision, and a subsequent unassigned query returned only APL-002, APL-009 and APL-004. The [assignment record](../evidence/slack-anthony-assignment.json) preserves the answer and independent readback. The [MLflow artifact review](../evidence/slack-weekly-assignment-mlflow.json) links both requests. Human acceptance remains pending.
+
+## Slack transaction receipts
+
+Assignment tools now return a two-sentence receipt with the previous owner, saved owner, verified register revision and a link to the affected Sheet row. The bot is instructed to use that receipt without appending the agreement text or tool diagnostics. An unchanged assignment has a separate receipt saying that no update was needed. Row links use the configured `spreadsheet_gid` and cell range; a browser check verified that the link selects APL-001's row.

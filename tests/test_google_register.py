@@ -38,6 +38,20 @@ class GoogleRegisterTest(unittest.TestCase):
         self.assertIn('/edit#gid=0&range=A2%3AJ2', result['commitment']['sheet_url'])
         self.assertIn(result['commitment']['sheet_url'], result['slack_reply'])
 
+    def test_receipt_preserves_previous_owner_and_custom_tab_link(self):
+        row = self.row()
+        row[4] = 'Anthony'
+        def api(url, method='GET', payload=None):
+            if method == 'POST':
+                row[4], row[8] = 'Khizar', '1'
+                return b'{}'
+            return json.dumps({'values': [row]}).encode()
+        with patch.dict(os.environ, LEGAL_GOOGLE_TOKEN='test'), patch.dict(commitments.INDEX, spreadsheet_gid=12345), patch.object(commitments, 'google', side_effect=api):
+            result = commitments.execute('assign_owner', {'commitment_id': 'APL-007', 'owner': 'Khizar', 'expected_revision': 0})
+        self.assertEqual(result['previous_owner'], 'Anthony')
+        self.assertIn('from Anthony to Khizar', result['slack_reply'])
+        self.assertIn('#gid=12345&range=A2%3AJ2', result['slack_reply'])
+
     def test_failed_verification_leaves_local_state_untouched(self):
         def api(url, method='GET', payload=None):
             return b'{}' if method == 'POST' else json.dumps({'values': [self.row()]}).encode()
