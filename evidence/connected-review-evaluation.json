@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "first_run": {
+      "drive_read_and_sheet_write_tools_called": true,
+      "independent_owner_readback": true,
+      "responsible_party_and_deliverables_correct": false
+    },
+    "corrected_lookup": {
+      "assigned_record_queried": true,
+      "responsible_party_and_deliverables_correct": true,
+      "owner_and_revision_reported": true
+    },
+    "short_receipt": {
+      "owner_and_revision_match_independent_readback": true,
+      "two_sentences_and_no_notification_claim": true
+    }
+  },
+  "evidence_sha256": {
+    "first_run": "dc6d642e616735038bcc49dd34d299d2a917bd07f6ba6ecdfb62b221823df77f",
+    "first_readback": "18ce4d2d45d03881636269f587e2bdead63900fd5e06ba5ed2afcaca75745741",
+    "corrected_lookup": "1f926465029804ffde9ab4c0f28e0600d1f9aa06050d2e72195328521e519a15",
+    "short_receipt": "1ef523d01553e8e0ea39154b5d3347250d52a0870ea4f4fd4e625b1dde7ceb5d"
+  },
+  "session_ids": [
+    "20260926_164920_a982cebd",
+    "20260926_210628_2e6332fa",
+    "20260926_212555_ac26ae1b"
+  ],
+  "scope": "Deterministic review of saved connected Slack and Google captures. The first answer misattributed the obligation; the later read-only reply corrected it. This does not join the live model spans or establish general accuracy or human acceptance.",
+  "trace_id": "tr-b1ec8fae69c289e77ae4f8831c379dcb",
+  "experiment_id": "44",
+  "trace_status": "OK"
+}

@@ -42,4 +42,6 @@ Assignment tools now return a two-sentence receipt with the previous owner, save
 
 The [live short receipt](../evidence/slack-short-receipt.json), session `20260926_212555_ac26ae1b`, changed APL-002 from unassigned to Khizar. A separate Google API read verified Khizar and revision 1. Slack rendered APL-002 as a clickable Sheet row link within the two-sentence reply.
 
+The [connected capture evaluation](../evidence/connected-review-evaluation.json) records all three related sessions in MLflow experiment 44. It checks the saved tool sequence, independent readbacks, responsible parties and receipt. The first Northstar answer passes the write checks but fails the party and deliverables check; the corrected read-only reply passes that narrow check. Run `scripts/evaluate_connected_review.py` with an MLflow-enabled Python environment to reproduce the artifact review. The trace reviews saved records and does not contain the live model spans or human approval.
+
 ![Two-sentence Slack receipt showing the owner change and linked Sheet row](../evidence/slack-short-receipt.png)
