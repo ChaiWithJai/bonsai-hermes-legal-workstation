@@ -1,5 +1,16 @@
 # How the commitments review works
 
+```mermaid
+flowchart LR
+    Counsel[Counsel in Slack] --> Hermes[Hermes agent]
+    Hermes <--> Model[Local Bonsai server]
+    Hermes --> Tools[Commitment tools]
+    Tools --> Drive[Agreement in Google Drive]
+    Tools <--> Sheet[Commitments in Google Sheets]
+    Sheet --> Receipt[Verified owner and row link]
+    Receipt --> Counsel
+```
+
 The user asks which client commitments need an owner. Hermes gives the request to Bonsai on the local workstation, and the model uses a small set of tools to read obligations, inspect their source and record an explicitly requested assignment.
 
 ## Sources and responsibility
@@ -33,3 +44,7 @@ The isolated profile defines the model endpoint, turn budget and permitted tools
 ## Evidence
 
 The exported Hermes sessions identify model usage, tool calls and final answers. Offline MLflow checks examine those saved results. A local assignment, a Slack read and a manual Sheet update are separate actions; together they do not prove one connected transaction. The execution record identifies the path actually observed for each capture.
+
+## Design choice
+
+A manual review requires counsel to move between the agreement, conversation and register. Here the same records remain authoritative, while the agent brings the source and assignment into Slack. Putting persistence and verification in tools makes the result inspectable independently of the model's wording. A form or spreadsheet remains simpler when the task needs no source interpretation; this pattern is useful when people need to ask follow-up questions before deciding.
