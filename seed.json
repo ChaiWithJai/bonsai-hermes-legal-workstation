@@ -65,14 +65,14 @@
     {
       "id": "APL-008",
       "customer": "Northstar Clinic Network",
-      "obligation": "Confirm site leads and backup contacts",
+      "obligation": "A+ Active must provide the site schedule, accessibility plan and named escalation leads",
       "due_date": "2026-10-01",
       "owner": "",
       "status": "open",
       "source_file": "northstar-order-form.md",
       "source_section": "Section 2.1",
       "revision": 0,
-      "evidence_needed": "Named leads and site schedule."
+      "evidence_needed": "The site schedule, accessibility plan and named escalation leads provided by A+ Active. Northstar confirms room availability and participating staff separately."
     },
     {
       "id": "APL-009",

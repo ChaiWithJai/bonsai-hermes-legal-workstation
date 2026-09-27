@@ -34,6 +34,18 @@ class CommitmentsTest(unittest.TestCase):
         self.assertEqual(clause["source_kind"], "local_copy_of_drive_document")
         self.assertIn("replaces the 30-day retention period", clause["clause"])
 
+    def test_northstar_review_preserves_the_party_and_deliverables(self):
+        review = commitments.execute("review_commitments", {})
+        row = next(item for item in review["commitments"] if item["id"] == "APL-008")
+        self.assertIn("A+ Active", row["obligation"])
+        for deliverable in ("site schedule", "accessibility plan", "named escalation leads"):
+            self.assertIn(deliverable, row["obligation"])
+        self.assertNotIn("backup contacts", row["obligation"])
+        clause = commitments.execute("get_commitment", {"commitment_id": "APL-008"})
+        self.assertIn("A+ Active will provide", clause["clause"])
+        self.assertIn("Northstar will confirm room availability and participating staff separately", clause["clause"])
+        self.assertEqual(row["due_date"], "2026-10-01")
+
     def test_assignment_reports_mock_and_prevents_stale_write(self):
         result = commitments.execute("assign_owner", {
             "commitment_id": "APL-007", "owner": "Khizar", "expected_revision": 0})
