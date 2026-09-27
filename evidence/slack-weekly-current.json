@@ -1,0 +1,53 @@
+{
+  "session_id": "20260926_211219_dbd4dda8",
+  "prompt": "What commitments still need an owner?",
+  "final_answer": "This register is sample data. Four commitments have no owner yet, in due-date order (undated last):\n\n- **APL-001** \u2014 Aster Clinical AI \u2014 Deliver clinician-manager facilitation plan \u2014 due **Sept 28, 2026** \u2014 dependency: the first workshop can't be confirmed without an approved plan.\n- **APL-002** \u2014 Aster Clinical AI \u2014 Approve the anonymized listening-session summary \u2014 due **Sept 30, 2026** \u2014 dependency: confidentiality review and client approval gate circulation of the summary.\n- **APL-009** \u2014 Northstar Clinic Network \u2014 Deliver quarterly program review \u2014 due **Oct 9, 2026** \u2014 dependency: the review must separate completed sessions from open concerns and make no clinical-efficacy claims.\n- **APL-004** \u2014 Harbor Care Intelligence \u2014 Confirm workshop acceptance \u2014 **no recorded deadline** \u2014 dependency: a client dependency blocks a reliable date, so it's still open to date.\n\nThe oldest open item is APL-001, due in two days, so it's the tightest fit before the review. Want me to retrieve the relevant clause for any of these before assigning one of Anthony, Khizar, or Jai?",
+  "independent_readback": {
+    "register_kind": "google_sheets_api",
+    "unassigned_only": true,
+    "commitments": [
+      {
+        "id": "APL-001",
+        "customer": "Aster Clinical AI",
+        "obligation": "Deliver clinician-manager facilitation plan",
+        "due_date": "2026-09-28",
+        "owner": "",
+        "revision": 0
+      },
+      {
+        "id": "APL-002",
+        "customer": "Aster Clinical AI",
+        "obligation": "Approve anonymized listening-session summary",
+        "due_date": "2026-09-30",
+        "owner": "",
+        "revision": 0
+      },
+      {
+        "id": "APL-009",
+        "customer": "Northstar Clinic Network",
+        "obligation": "Deliver quarterly program review",
+        "due_date": "2026-10-09",
+        "owner": "",
+        "revision": 0
+      },
+      {
+        "id": "APL-004",
+        "customer": "Harbor Care Intelligence",
+        "obligation": "Confirm workshop acceptance",
+        "due_date": "",
+        "owner": "",
+        "revision": 0
+      }
+    ]
+  },
+  "assessment": {
+    "ids_and_order": "match independent live readback",
+    "assigned_items_excluded": true,
+    "undated_item_last": true,
+    "limitations": [
+      "Relative-date wording not treated as verified",
+      "Harbor dependency explanation is vague; verify delivery date rather than imply client blame"
+    ],
+    "human_acceptance": "pending"
+  }
+}
