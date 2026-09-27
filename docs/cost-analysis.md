@@ -25,3 +25,9 @@ python3 scripts/export_call_usage.py \
 ```
 
 The exporter requires a contiguous call sequence and a matching completed-turn count. It rejects partial logs rather than silently omitting requests. Multi-turn sessions require separate accounting; this helper covers one turn. The source log hash is recorded, and credentials or conversation text are not copied into the output.
+
+## Connected assignment request usage
+
+The live APL-001 assignment to Anthony used three main model requests. Their combined input was 9,452 tokens and output was 921 tokens, with 8,285 input tokens reported as cached. A separate session-title request used 283 input and 515 output tokens. Include that auxiliary request when accounting for the application's total inference work.
+
+The [request records](../evidence/slack-anthony-request-usage.json) preserve per-call counts and exchange hashes. Main proxy request durations sum to 39.09 seconds; that sum excludes other parts of the Slack interaction and is not end-to-end latency. The assignment was independently verified in Google Sheets. Human acceptance, energy, review time and matched hosted-task costs remain unmeasured.
