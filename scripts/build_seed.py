@@ -1,10 +1,8 @@
 """Rebuild the importable CSV from this repository's sample agreements."""
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import csv
 import json
 import os
+from pathlib import Path
 
 ROOT = Path(os.environ.get("LEGAL_DATA_DIR", Path(__file__).resolve().parents[1])).expanduser().resolve()
 rows = json.loads((ROOT / "seed.json").read_text())["commitments"]
