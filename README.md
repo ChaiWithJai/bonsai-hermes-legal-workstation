@@ -23,3 +23,7 @@ The [connected verification](docs/google-verification.md) documents the Drive re
 ## Evaluate workstation costs
 
 Use the [cost analysis](docs/cost-analysis.md) to compare the cost of completing the same review locally and with a hosted model. The worksheet includes model requests, hardware, power, operations and human review. Matched runs and measured review costs are still needed to establish savings.
+
+## Inspect the installed configuration
+
+The [configuration screenshot and source record](docs/recorded-configuration.md) show the installed Hermes endpoint, context, turn limit and tool servers. Compare them with the setup template when reproducing the run.
