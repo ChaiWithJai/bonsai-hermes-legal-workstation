@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-27",
+  "customer_question": "What commitments still need an owner?",
+  "review_request": "https://aplusactiveservices.slack.com/archives/D0C4B99LSRZ/p1790484669356959",
+  "review_result": "Six unassigned commitments across three clients; APL-003 was the first dated decision.",
+  "assignment_request": "Assign APL-003 to Anthony for this sample review. Verify the saved owner in the Sheet; do not notify anyone.",
+  "assignment_receipt": "https://aplusactiveservices.slack.com/archives/D0C4B99LSRZ/p1790484801711919?thread_ts=1790484669.356959&cid=D0C4B99LSRZ",
+  "receipt_text": "Updated APL-003: owner changed from unassigned to Anthony. Verified in Google Sheets at revision 1; no notification was sent.",
+  "hermes_session": "20260927_005110_fb1ab172",
+  "mlflow_traces": {
+    "review_commitments": "tr-5eeb7ffb272c1538d46845b4e397ed32",
+    "get_commitment": "tr-4a4eaf22482604e59f7570bc92594971",
+    "assign_owner": "tr-6b8d6c8b6f5638cb39bfc9b6e1c03905"
+  },
+  "tool_sources": {
+    "review_commitments": "google_sheets_api",
+    "get_commitment": "google_drive_api",
+    "assign_owner": "google_sheets_api"
+  },
+  "write": {
+    "id": "APL-003",
+    "previous_owner": null,
+    "new_owner": "Anthony",
+    "expected_revision": 0,
+    "saved_revision": 1
+  },
+  "independent_google_readback": {
+    "owner": "Anthony",
+    "revision": 1,
+    "remaining_unassigned": 5
+  }
+}

@@ -21,9 +21,11 @@ Run `python3 -m unittest discover -s tests -v -p 'test_*.py'` from the repositor
 
 The Google adapter reads the Sheet when configured and verifies assignment writes with a fresh read. Unit tests alone do not prove OAuth permissions, a deployed gateway configuration or a remote write. The connected Slack assignment and the separate v3 read below provide narrower live evidence. No human acceptance decision has been recorded for these weekly reviews.
 
-## Connected version 3 read
+## Connected version 3 review and assignment
 
-The [September 27 verification](../evidence/weekly-review-v3-google-20260927/verification.json) read six open commitments from the v3 Google Sheet and retrieved their source clauses through the Drive API. All six clauses matched the versioned fixture files by SHA-256. A traced Hermes review used `review_commitments` with `google_sheets_api`; a second traced question used `get_commitment` for Harbor's acceptance clause with `google_drive_api`. The answer correctly left the deadline undated until A+ delivery is confirmed. The two MLflow tool traces are named in the verification record. These sessions made no assignment write and did not use Slack; the earlier connected Slack assignment remains a separate capture.
+The [September 27 verification](../evidence/weekly-review-v3-google-20260927/verification.json) read six open commitments from the v3 Google Sheet and retrieved their source clauses through the Drive API. All six clauses matched the versioned fixture files by SHA-256. An earlier traced answer correctly left Harbor's deadline undated until A+ delivery is confirmed.
+
+The [connected Slack transaction](../evidence/weekly-review-v3-google-20260927/slack-assignment.json) asked the weekly review question, selected APL-003 as the first dated decision, retrieved its Drive context and assigned Anthony. The Sheet changed from no owner at revision 0 to Anthony at revision 1. A separate Google API read confirmed Anthony and five remaining unassigned commitments. The evidence record links the Slack receipt, Hermes session and three MLflow tool traces. It does not establish counsel approval or recurring reliability.
 
 ## Response-structure candidate
 
