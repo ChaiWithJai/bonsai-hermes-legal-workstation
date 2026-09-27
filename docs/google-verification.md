@@ -45,3 +45,7 @@ The [live short receipt](../evidence/slack-short-receipt.json), session `2026092
 The [connected capture evaluation](../evidence/connected-review-evaluation.json) records all three related sessions in MLflow experiment 44. It checks the saved tool sequence, independent readbacks, responsible parties and receipt. The first Northstar answer passes the write checks but fails the party and deliverables check; the corrected read-only reply passes that narrow check. Run `scripts/evaluate_connected_review.py` with an MLflow-enabled Python environment to reproduce the artifact review. The trace reviews saved records and does not contain the live model spans or human approval.
 
 ![Two-sentence Slack receipt showing the owner change and linked Sheet row](../evidence/slack-short-receipt.png)
+
+The [current Sheet capture](../evidence/google-sheet-current.png) shows APL-002 with Khizar and revision 1. It was taken after the transaction, so the independent API readback above remains the evidence tying the saved state to the Slack assignment.
+
+![Google Sheet showing APL-002 with Khizar at revision 1](../evidence/google-sheet-current.png)
