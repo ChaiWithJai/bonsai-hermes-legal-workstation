@@ -82,7 +82,7 @@ def rows():
             item = dict(zip(fields, cells + [""] * max(0, 10 - len(cells))))
             item["revision"] = int(item["revision"])
             sheet_id = os.environ.get("LEGAL_SPREADSHEET_ID", INDEX["spreadsheet_id"])
-            item["sheet_url"] = "https://docs.google.com/spreadsheets/d/" + urllib.parse.quote(sheet_id, safe="") + "/edit#range=" + urllib.parse.quote(sheet_range(f"A{number}:J{number}"), safe="")
+            item["sheet_url"] = "https://docs.google.com/spreadsheets/d/" + urllib.parse.quote(sheet_id, safe="") + "/edit#gid=" + str(INDEX.get("spreadsheet_gid", 0)) + "&range=" + urllib.parse.quote(f"A{number}:J{number}", safe="")
             if item["revision"] < 0:
                 raise RuntimeError("Invalid Google Sheet revision")
             seen.add(item["id"])
