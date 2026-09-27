@@ -2,6 +2,8 @@
 
 One local Hermes clause-reading replay returned reasoning text without a final answer. The same prompt and tools produced a complete answer through a proxy that applied the settings below. This was a combined configuration change on one development case, so it does not isolate a causal setting or establish a speed improvement.
 
+A [fresh direct endpoint check](../evidence/runtime-recheck-20260927.json) loaded the recorded Prism runtime and Bonsai checkpoint and returned the correct Northstar parties, deliverables and date on one fixed request. It verifies the documented model launch on this Mac. It did not run Hermes or test an optimization.
+
 Start the model with `sh start_model.sh`, then start the repository's proxy in another terminal:
 
 ```sh
