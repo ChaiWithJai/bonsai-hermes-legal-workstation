@@ -74,13 +74,15 @@ def rows():
         result, seen = [], set()
         fields = ("id", "customer", "obligation", "due_date", "owner", "status",
                   "source_file", "source_section", "revision", "evidence_needed")
-        for cells in sheet_values():
+        for number, cells in enumerate(sheet_values(), start=2):
             if not cells or not cells[0]:
                 continue
             if len(cells) < 9 or cells[0] in seen:
                 raise RuntimeError("Incomplete or duplicate commitment in Google Sheet")
             item = dict(zip(fields, cells + [""] * max(0, 10 - len(cells))))
             item["revision"] = int(item["revision"])
+            sheet_id = os.environ.get("LEGAL_SPREADSHEET_ID", INDEX["spreadsheet_id"])
+            item["sheet_url"] = "https://docs.google.com/spreadsheets/d/" + urllib.parse.quote(sheet_id, safe="") + "/edit#range=" + urllib.parse.quote(sheet_range(f"A{number}:J{number}"), safe="")
             if item["revision"] < 0:
                 raise RuntimeError("Invalid Google Sheet revision")
             seen.add(item["id"])
@@ -174,12 +176,22 @@ def execute(name, arguments):
         if current["revision"] != expected:
             raise ValueError("Record changed. Read it again before assigning")
         if current["owner"] == owner:
-            return {"changed": False, "commitment": current, "sheet_sync": "unchanged"}
+            label = f"<{current['sheet_url']}|{commitment_id}>" if current.get('sheet_url') else commitment_id
+            destination = "Google Sheets" if google_configured() else "the local register"
+            return {"changed": False, "commitment": current, "sheet_sync": "unchanged",
+                    "previous_owner": owner, "new_owner": owner,
+                    "slack_reply": f"{label} is already assigned to {owner}; no update was needed. Verified in {destination} at revision {current['revision']}."}
+        previous_owner = current["owner"]
         sheet_sync = update_sheet(commitment_id, owner, expected)
         current["owner"], current["revision"] = owner, expected + 1
         current["last_sheet_sync"] = sheet_sync
         save(all_rows)
+    label = f"<{current['sheet_url']}|{commitment_id}>" if sheet_sync == "google_sheets_api_verified" else commitment_id
+    before = previous_owner or "unassigned"
+    destination = "Google Sheets" if sheet_sync == "google_sheets_api_verified" else "the local register only"
+    receipt = f"Updated {label}: owner changed from {before} to {owner}. Verified in {destination} at revision {current['revision']}; no notification was sent."
     return {"changed": True, "commitment": current, "sheet_sync": sheet_sync,
+            "previous_owner": previous_owner, "new_owner": owner, "slack_reply": receipt,
             "notification_sent": False, "fictional": True}
 
 

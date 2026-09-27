@@ -61,6 +61,11 @@ class CommitmentsTest(unittest.TestCase):
             "commitment_id": "APL-007", "owner": "Khizar", "expected_revision": 0})
         self.assertEqual(result["sheet_sync"], "mocked_local_only")
         self.assertEqual(result["commitment"]["revision"], 1)
+        unchanged = commitments.execute("assign_owner", {"commitment_id": "APL-007", "owner": "Khizar", "expected_revision": 1})
+        self.assertFalse(unchanged["changed"])
+        self.assertIn("no update was needed", unchanged["slack_reply"])
+        self.assertNotIn("Google Sheets", unchanged["slack_reply"])
+        self.assertEqual(unchanged["previous_owner"], unchanged["new_owner"])
         self.assertEqual(commitments.execute("get_commitment", {"commitment_id": "APL-007"})["owner"], "Khizar")
         self.assertEqual(commitments.execute("get_commitment", {"commitment_id": "APL-007"})["last_sheet_sync"], "mocked_local_only")
         with self.assertRaisesRegex(ValueError, "Record changed"):

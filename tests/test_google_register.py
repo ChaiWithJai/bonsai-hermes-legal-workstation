@@ -31,6 +31,12 @@ class GoogleRegisterTest(unittest.TestCase):
             result = commitments.execute('assign_owner', {'commitment_id': 'APL-007', 'owner': 'Khizar', 'expected_revision': 0})
         self.assertEqual(result['sheet_sync'], 'google_sheets_api_verified')
         self.assertEqual(calls[-2:], ['POST', 'GET'])
+        self.assertEqual(result['previous_owner'], '')
+        self.assertEqual(result['new_owner'], 'Khizar')
+        self.assertIn('owner changed from unassigned to Khizar', result['slack_reply'])
+        self.assertIn('Verified in Google Sheets at revision 1', result['slack_reply'])
+        self.assertIn('/edit#range=%27Sheet1%27%21A2%3AJ2', result['commitment']['sheet_url'])
+        self.assertIn(result['commitment']['sheet_url'], result['slack_reply'])
 
     def test_failed_verification_leaves_local_state_untouched(self):
         def api(url, method='GET', payload=None):
