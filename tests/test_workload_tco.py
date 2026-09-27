@@ -1,5 +1,7 @@
 import argparse
 import unittest
+import json
+from pathlib import Path
 
 from workload_tco import analyze
 
@@ -49,6 +51,21 @@ class WorkloadTcoTest(unittest.TestCase):
         session = {"calls": [{"api_call_count": 1, "input_tokens": 1, "output_tokens": 1}]}
         result = analyze(session, self.args)
         self.assertTrue(result["monthly_projection"]["volume_exceeds_capacity_upper_bound"])
+
+    def test_connected_assignment_includes_auxiliary_request(self):
+        source = Path(__file__).resolve().parents[1] / "evidence/slack-anthony-request-usage.json"
+        session = json.loads(source.read_text())
+        result = analyze(session, self.args)
+        self.assertEqual(result["observed_from_session"], {
+            "model_api_calls": 4, "input_tokens": 9735, "output_tokens": 1436})
+        self.assertAlmostEqual(result["monthly_projection"]["hosted_total"], 176.07)
+        session["session_title_requests"] = session["main_requests"][:1]
+        with self.assertRaisesRegex(ValueError, "Duplicate exchange"):
+            analyze(session, self.args)
+
+    def test_auxiliary_usage_cannot_be_silently_omitted(self):
+        with self.assertRaisesRegex(ValueError, "explicitly include"):
+            analyze({"main_requests": [{}]}, self.args)
 
     def test_summary_usage_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "per-call"):

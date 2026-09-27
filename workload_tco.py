@@ -1,7 +1,7 @@
 """Analyze one captured Hermes session as a workload, with explicit cost assumptions.
 
 This is a planning model. It does not measure power, quality, hosted performance,
-or the missing Slack -> Drive -> Sheets transaction.
+or hosted execution of the same task.
 """
 
 import argparse
@@ -32,6 +32,20 @@ def fraction(value):
 
 def analyze(session, args):
     usage = session.get("calls")
+    if "main_requests" in session:
+        if "calls" in session:
+            raise ValueError("Provide one usage format, not both calls and main_requests")
+        if not isinstance(session["main_requests"], list) or not session["main_requests"]:
+            raise ValueError("main_requests must contain per-call records")
+        if not isinstance(session.get("session_title_requests"), list):
+            raise ValueError("Connected records must explicitly include session_title_requests, even if empty")
+        records = session["main_requests"] + session["session_title_requests"]
+        identities = [row["exchange"] for row in records]
+        if len(identities) != len(set(identities)):
+            raise ValueError("Duplicate exchange would double-count inference usage")
+        usage = [{"input_tokens": row["usage"]["prompt_tokens"],
+                  "output_tokens": row["usage"]["completion_tokens"]}
+                 for row in records]
     if not isinstance(usage, list) or not usage:
         raise ValueError("Provide per-call usage in calls; session summary totals are not billable request totals")
     for row in usage:
@@ -85,7 +99,7 @@ def analyze(session, args):
             "volume_exceeds_capacity_upper_bound": volume > single_slot_capacity,
         },
         "exclusions": [
-            "The captured legal assignment is a direct local Hermes session, not a connected Slack to Drive to Sheets task.",
+            "Input scope and task completion must be established from the accompanying execution evidence; token usage alone does not prove either.",
             "Power, end-to-end duration, acceptance rates, hosted prices, review labor and operations are supplied assumptions.",
             "All input tokens are priced at the supplied input rate; cached-input discounts are not modeled.",
             "Hosted token usage is assumed equal to the local captured session; a hosted comparator must be measured separately.",
