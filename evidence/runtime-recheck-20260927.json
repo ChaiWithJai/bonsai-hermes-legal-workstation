@@ -1,0 +1,27 @@
+{
+  "scope": "One direct local clause-reading request after launching the documented matching runtime and checkpoint; no Hermes, Slack, Google, human review or optimization comparison in this replay.",
+  "request_sha256": "063230a81c0fdfdbc63b8d6531a065fdd983941c405d79e3cec271569dd2087e",
+  "response_sha256": "a013045fd24ea8662bd20b4de437a9bc2e46cdc1f68afefeb9f78b96f8c10078",
+  "runtime_sha256": "1ad69ebaada923760c52c1dc50daf198a22c2adb4a9dcccd25779fa7079f353b",
+  "model_sha256": "3907dc1658db1f78a9826bf8d5bcb8dc65db0d466388937af57f2294fae62ec1",
+  "system_fingerprint": "b10709-9a9394a89",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 355,
+    "prompt_tokens": 320,
+    "total_tokens": 675,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "checks": {
+    "provider": true,
+    "provider_deliverables": true,
+    "provider_due_date": true,
+    "customer": true,
+    "customer_deliverables": true,
+    "customer_due_date_unknown": true
+  },
+  "passed": 6,
+  "total": 6
+}
