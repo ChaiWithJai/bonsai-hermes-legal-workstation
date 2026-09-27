@@ -39,3 +39,7 @@ The next Slack request asked the agent to read APL-001 and assign its facilitati
 ## Slack transaction receipts
 
 Assignment tools now return a two-sentence receipt with the previous owner, saved owner, verified register revision and a link to the affected Sheet row. The bot is instructed to use that receipt without appending the agreement text or tool diagnostics. An unchanged assignment has a separate receipt saying that no update was needed. Row links use the configured `spreadsheet_gid` and cell range; a browser check verified that the link selects APL-001's row.
+
+The [live short receipt](../evidence/slack-short-receipt.json), session `20260926_212555_ac26ae1b`, changed APL-002 from unassigned to Khizar. A separate Google API read verified Khizar and revision 1. Slack rendered APL-002 as a clickable Sheet row link within the two-sentence reply.
+
+![Two-sentence Slack receipt showing the owner change and linked Sheet row](../evidence/slack-short-receipt.png)
